@@ -3,13 +3,13 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./core/home/home.component";
 import {AddTicketsComponent} from "./client-view/add-tickets/add-tickets.component";
 import {ViewTicketsComponent} from "./client-view/view-tickets/view-tickets.component";
+import {ClientViewComponent} from "./client-view/client-view.component";
 
 const appRoutes: Routes = [
 
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: '', component: HomeComponent},
-  {path: 'addtickets', component: AddTicketsComponent},
-  {path: 'viewtickets', component: ViewTicketsComponent},
+  {path: 'clientview', component: ClientViewComponent},
 
 ];
 
