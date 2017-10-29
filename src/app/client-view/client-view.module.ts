@@ -7,6 +7,8 @@ import { AddTicketsComponent } from './add-tickets/add-tickets.component';
   imports: [
     CommonModule
   ],
-  declarations: [ViewTicketsComponent, AddTicketsComponent]
+  declarations: [ViewTicketsComponent, AddTicketsComponent],
+  exports: [
+  ],
 })
 export class ClientViewModule { }
