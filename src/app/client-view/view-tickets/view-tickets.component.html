@@ -1,11 +1,11 @@
-<div style="margin: auto; max-width: 1000px; margin-top:50px">
+<div style="margin: auto; max-width: 1000px;">
   <data-table id="films-grid"
               headerTitle="Films"
               [items]="films"
               [itemCount]="filmCount"
               (reload)="reloadFilms($event)"
 
-              [limit]="8"
+              [limit]="7"
               [sortBy]="'rating'"
               [sortAsc]="false"
 

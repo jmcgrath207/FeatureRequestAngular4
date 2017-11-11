@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {margin: 0; height: 100%;}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 60px;
+  background-image:url('https://blackrockdigital.github.io/startbootstrap-creative/img/header.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
