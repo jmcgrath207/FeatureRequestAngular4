@@ -7,9 +7,9 @@ import {ViewTicketsComponent} from "./view-tickets/view-tickets.component";
 
 // TODO: Need to fix child routing issues
 const recipesRoutes: Routes = [
-  {path: '', component: ClientViewComponent, children: [
-    {path: 'test', component: ViewTicketsComponent},
-    { path: 'new', component: AddTicketsComponent },
+  {path: 'clientview', component: ClientViewComponent, children: [
+    {path: '', component: ViewTicketsComponent},
+    {path: 'add', component: AddTicketsComponent},
   ]},
 ];
 
