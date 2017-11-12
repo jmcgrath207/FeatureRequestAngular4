@@ -9,7 +9,10 @@ import { TicketEditComponent } from './ticket-edit/ticket-edit.component';
 import { TicketAddComponent } from './ticket-add/ticket-add.component';
 import { TicketDefaultViewComponent } from './ticket-default-view/ticket-default-view.component';
 import { TicketInfoComponent } from './ticket-info/ticket-info.component';
-import {MatInputModule, MatFormFieldModule, MatSelectModule, MatTableModule} from "@angular/material";
+import {
+  MatInputModule, MatFormFieldModule, MatSelectModule, MatTableModule,
+  MatPaginatorModule
+} from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
@@ -26,7 +29,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatFormFieldModule,
     MatSelectModule,
     MatTableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   declarations: [ ClientViewComponent, TicketTableComponent, TicketEditComponent, TicketAddComponent, TicketDefaultViewComponent, TicketInfoComponent],
   exports: [
