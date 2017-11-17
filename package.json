@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^5.0.1",
     "@angular/platform-server": "^5.0.1",
     "@angular/router": "^5.0.1",
+    "@ngrx/effects": "^4.1.1",
     "@ngrx/store": "^4.1.1",
     "bootstrap": "^3.3.7",
     "bootstrap-table": "^1.11.2",

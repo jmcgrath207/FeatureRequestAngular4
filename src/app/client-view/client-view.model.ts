@@ -13,4 +13,19 @@ export class ClientViewModel {
   public StatusId: number;
   public PriorityId: number;
 
+
+  constructor(TicketId: number, Title: string, UserId: number,
+              Description: string, CreationDate: string, UpdateDate: string,
+              TargetDate: string, DepartmentId: number, StatusId: number, PriorityId: number) {
+    this.TicketId = TicketId;
+    this.Title = Title;
+    this.UserId = UserId;
+    this.Description = Description;
+    this.CreationDate = CreationDate;
+    this.UpdateDate = UpdateDate;
+    this.TargetDate = TargetDate;
+    this.DepartmentId = DepartmentId;
+    this.StatusId = StatusId;
+    this.PriorityId = PriorityId;
+  }
 }

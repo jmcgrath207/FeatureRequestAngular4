@@ -1,13 +1,13 @@
 import {Actions, Effect} from '@ngrx/effects';
-import * as RecipeActions from '../store/recipe.actions';
+import * as ClientViewActions from '../store/client-view.actions';
+import * as ClientViewReducers from '../store/client-view.reducers';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/withLatestFrom';
-import {RecipeModel} from '../recipe.model';
 import {HttpClient, HttpRequest} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
-import * as fromRecipe from '../store/recipe.reducers';
+import {ClientViewModel} from "../client-view.model";
 
 @Injectable()
 export class ClientViewEffects {
@@ -15,13 +15,13 @@ export class ClientViewEffects {
 
   constructor(private actions$: Actions,
               private httpClient: HttpClient,
-              private store: Store<fromRecipe.FeatureState>) {}
+              private store: Store<ClientViewReducers.FeatureState>) {}
 
   @Effect()
   recipeFetch = this.actions$
-    .ofType(RecipeActions.FETCH_RECIPES)
-    .switchMap((action: RecipeActions.FetchRecipes) => {
-      return this.httpClient.get<RecipeModel[]>('https://angular4recipe.firebaseio.com/recipes.json', {
+    .ofType(ClientViewActions.FETCH_CLIENT_VIEW)
+    .switchMap((action: ClientViewActions.FetchClientView) => {
+      return this.httpClient.get<ClientViewModel[]>('http://localhost:8080/api/client_view', {
         observe: 'body',
         responseType: 'json'
       });
@@ -29,13 +29,8 @@ export class ClientViewEffects {
     .map(
       (recipes) => {
         console.log(recipes);
-        for (const recipe of recipes) {
-          if (!recipe['ingredients']) {
-            recipe['ingredients'] = [];
-          }
-        }
         return {
-          type: RecipeActions.SET_RECIPIE,
+          type: ClientViewActions.SET_CLIENT_VIEW,
           payload: recipes
         };
       }
