@@ -5,18 +5,25 @@ import * as ClientViewActions from './client-view.actions';
 import * as fromApp from '../../store/app.reducers';
 import {ClientViewModel} from "../client-view.model";
 
+
+
+
+/*
 export interface FeatureState extends fromApp.AppState{
-  recipes: State;
+  clientview: State;
 
 }
+*/
 
 export interface State {
-  recipes: ClientViewModel[];
+  clientview: ClientViewModel[];
 }
 
 
-
-const initialState: State = { };
+// TODO: Create Client View Information
+const initialState: State = {
+  clientview: [new ClientViewModel('thst',a)]
+};
 
 
 export function  ClientViewReducer(state = initialState, action: ClientViewActions.ClientViewActions) {
