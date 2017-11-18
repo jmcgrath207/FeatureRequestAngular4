@@ -3,7 +3,6 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import * as ClientViewActions from '../store/client-view.actions';
 import * as ClientViewReducers from '../store/client-view.reducers';
 import {Store} from "@ngrx/store";
-import {ClientViewInterfaceModel} from "../client-view.interface.model";
 import {ClientViewModel} from "../client-view.model";
 import {Observable} from "rxjs/Observable";
 
