@@ -4,7 +4,7 @@ import * as ClientViewReducers from '../store/client-view.reducers';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/withLatestFrom';
-import {HttpClient, HttpRequest} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {ClientViewModel} from "../client-view.model";

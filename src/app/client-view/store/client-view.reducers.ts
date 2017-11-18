@@ -1,4 +1,4 @@
-import {State} from "@ngrx/store";
+
 
 
 import * as ClientViewActions from './client-view.actions';
@@ -8,12 +8,12 @@ import {ClientViewModel} from "../client-view.model";
 
 
 
-/*
+
 export interface FeatureState extends fromApp.AppState{
   clientview: State;
 
 }
-*/
+
 
 export interface State {
   clientview: ClientViewModel[];
@@ -22,13 +22,13 @@ export interface State {
 
 // TODO: Create Client View Information
 const initialState: State = {
-  clientview: [new ClientViewModel('thst',a)]
+  clientview: []
 };
 
 
 export function  ClientViewReducer(state = initialState, action: ClientViewActions.ClientViewActions) {
   switch (action.type) {
-    case (RecipeActions.SET_RECIPIE):
+    case (ClientViewActions.SET_CLIENT_VIEW):
       return {
         ...state,
         recipes: [...action.payload]

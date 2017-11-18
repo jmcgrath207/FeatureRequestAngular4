@@ -20,10 +20,6 @@ import {EffectsModule} from "@ngrx/effects";
 import {ClientViewEffects} from "./store/client-view.effects";
 
 
-
-
-
-
 @NgModule({
   imports: [
     CommonModule,
