@@ -53,6 +53,10 @@ export class TicketTableComponent  implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+  handleRowClick(row){
+    console.log(row)
+  }
+
 }
 
 
