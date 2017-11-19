@@ -5,6 +5,7 @@ import * as ClientViewReducers from '../store/client-view.reducers';
 import {Store} from "@ngrx/store";
 import {ClientViewModel} from "../client-view.model";
 import 'rxjs/add/operator/take';
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 /**
@@ -27,8 +28,9 @@ export class TicketTableComponent  implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
 
-  constructor(private store: Store<ClientViewReducers.FeatureState>) {
-  }
+  constructor(private store: Store<ClientViewReducers.FeatureState>,
+              private router: Router,
+              private route: ActivatedRoute) {}
 
 
   ngOnInit() {
@@ -54,7 +56,8 @@ export class TicketTableComponent  implements OnInit {
   }
 
   handleRowClick(row){
-    console.log(row)
+    console.log(row);
+    this.router.navigate([row.ticketId], {relativeTo: this.route});
   }
 
 }
