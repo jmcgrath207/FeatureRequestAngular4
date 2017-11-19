@@ -27,11 +27,10 @@ export class ClientViewEffects {
       });
     })
     .map(
-      (recipes) => {
-        console.log(recipes);
+      (clientview) => {
         return {
           type: ClientViewActions.SET_CLIENT_VIEW,
-          payload: recipes
+          payload: clientview
         };
       }
     );

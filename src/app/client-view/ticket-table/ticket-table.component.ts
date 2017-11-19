@@ -5,6 +5,7 @@ import * as ClientViewReducers from '../store/client-view.reducers';
 import {Store} from "@ngrx/store";
 import {ClientViewModel} from "../client-view.model";
 import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/take';
 
 
 /**
@@ -31,14 +32,22 @@ export class TicketTableComponent  implements OnInit {
 
   ngOnInit() {
     // returns true if in edit mode
+
         this.store.dispatch(new ClientViewActions.FetchClientView());
-        this.clientviewState =  this.store.select('clientview');
+        // TODO: Fix issue where first return is emptry clientview Array
+        this.store.select('clientview').take(2).subscribe(
+          (clientViewState: ClientViewReducers.State) => {
+            console.log(clientViewState);
+            console.log('log')
+          }
+
+        );
      /*   this.dataSource = new MatTableDataSource(clientViewData);*/
       }
 
 
 
-  private initForm() {
+  private initTable() {
   }
 
   }

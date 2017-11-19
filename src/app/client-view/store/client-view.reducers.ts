@@ -31,7 +31,7 @@ export function  ClientViewReducer(state = initialState, action: ClientViewActio
     case (ClientViewActions.SET_CLIENT_VIEW):
       return {
         ...state,
-        recipes: [...action.payload]
+        clientview: [...action.payload]
       };
     default:
       return state;
