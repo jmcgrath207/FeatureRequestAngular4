@@ -17,16 +17,9 @@ import 'rxjs/add/operator/take';
 })
 export class TicketTableComponent  implements OnInit {
 
-  displayedColumns = ['CreationDate'];
-  /*                      'DepartmentId',
-                        'description',
-                        'priorityId',
-                        'statusId',
-                        'targetDate',
-                        'ticketId',
-                        'title',
-                        'updateDate',
-                        'userId'];*/
+  displayedColumns = ['creationDate',
+                      'description',
+                      'title',];
 
   dataSource: MatTableDataSource<ClientViewModel>;
 
@@ -43,9 +36,12 @@ export class TicketTableComponent  implements OnInit {
 
     this.store.dispatch(new ClientViewActions.FetchClientView());
     // TODO: Fix issue where first return is emptry clientview Array
-    this.store.select('clientview').take(1).subscribe(
+    this.store.select('clientview').take(2).subscribe(
       (clientViewState: ClientViewReducers.State) => {
+        if (clientViewState.clientview.length !== 0) {
           this.dataSource = new MatTableDataSource(clientViewState.clientview);
+        }
+
       }
     );
     /*   this.dataSource = new MatTableDataSource(clientViewData);*/
