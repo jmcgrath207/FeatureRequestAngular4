@@ -1,3 +1,28 @@
-<h1>{{ (clientViewState | async).clientview[ticketId].description }}</h1>
+<div class="card">
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
 
-
+  <div class="card-block">
+    <h4 class="card-title">Ticket Info</h4>
+    <h6 class="card-subtitle mb-2 text-muted">Ticket ID</h6>
+    <p class="card-text">{{ (clientViewState | async).clientview[ticketId].ticketId }}</p>
+    <h6 class="card-subtitle mb-2 text-muted">Ticket Description</h6>
+    <p class="card-text">{{ (clientViewState | async).clientview[ticketId].description }}</p>
+    <h6 class="card-subtitle mb-2 text-muted">User ID</h6>
+    <p class="card-text">{{ (clientViewState | async).clientview[ticketId].userId }}</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
