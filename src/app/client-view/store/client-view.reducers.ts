@@ -3,7 +3,7 @@
 
 import * as ClientViewActions from './client-view.actions';
 import * as fromApp from '../../store/app.reducers';
-import {ClientViewModel} from "../client-view.model";
+import {TicketTableModel} from "../ticket-table/ticket-table.model";
 
 
 
@@ -16,13 +16,13 @@ export interface FeatureState extends fromApp.AppState{
 
 
 export interface State {
-  clientview: ClientViewModel[];
+  clientview: TicketTableModel[];
 }
 
 
 // TODO: Create Client View Information
 const initialState: State = {
-  clientview: [ new ClientViewModel(1,'asdf',1,'asdf','asdf','asdfsad','aasf',1,1,1)]
+  clientview: [ new TicketTableModel(1,'asdf',1,'asdf','asdf','asdfsad','aasf',1,1,1)]
 };
 
 

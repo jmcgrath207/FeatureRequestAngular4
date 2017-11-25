@@ -3,7 +3,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import * as ClientViewActions from '../store/client-view.actions';
 import * as ClientViewReducers from '../store/client-view.reducers';
 import {Store} from "@ngrx/store";
-import {ClientViewModel} from "../client-view.model";
+import {TicketTableModel} from "./ticket-table.model"
 import 'rxjs/add/operator/take';
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -22,7 +22,7 @@ export class TicketTableComponent  implements OnInit {
                       'description',
                       'title',];
 
-  dataSource: MatTableDataSource<ClientViewModel>;
+  dataSource: MatTableDataSource<TicketTableModel>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

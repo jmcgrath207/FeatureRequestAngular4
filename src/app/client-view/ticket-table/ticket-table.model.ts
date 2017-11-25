@@ -1,7 +1,7 @@
 
 
 
-export class ClientViewModel {
+export class TicketTableModel {
   public ticketId: number;
   public title: string;
   public userId: number;

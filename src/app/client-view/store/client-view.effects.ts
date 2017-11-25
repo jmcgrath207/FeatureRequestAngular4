@@ -7,7 +7,7 @@ import 'rxjs/add/operator/withLatestFrom';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {ClientViewModel} from "../client-view.model";
+import {TicketTableModel} from "../ticket-table/ticket-table.model";
 
 @Injectable()
 export class ClientViewEffects {
@@ -21,7 +21,7 @@ export class ClientViewEffects {
   recipeFetch = this.actions$
     .ofType(ClientViewActions.FETCH_CLIENT_VIEW)
     .switchMap((action: ClientViewActions.FetchClientView) => {
-      return this.httpClient.get<ClientViewModel[]>('http://localhost:8080/api/client_view', {
+      return this.httpClient.get<TicketTableModel[]>('http://localhost:8080/api/client_view', {
         observe: 'body',
         responseType: 'json'
       });
