@@ -18,9 +18,12 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class TicketTableComponent  implements OnInit {
 
-  displayedColumns = ['creationDate',
-                      'description',
-                      'title',];
+  displayedColumns = ['ticketTitle',
+                       'updateDate',
+                      'departmentDescription',
+                      'ticketOwner',
+                      'ticketDescription',
+                      'targetDate'];
 
   dataSource: MatTableDataSource<TicketTableModel>;
 
