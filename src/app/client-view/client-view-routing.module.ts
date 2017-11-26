@@ -9,7 +9,7 @@ import {TicketInfoComponent} from "./ticket-info/ticket-info.component";
 
 
 
-// TODO: Need to fix child routing issues
+// TODO: Need to fix routing issue where router does not redirect when matching
 const recipesRoutes: Routes = [
   {path: 'clientview', component: ClientViewComponent, children: [
     {path: '', component: TicketDefaultViewComponent},
