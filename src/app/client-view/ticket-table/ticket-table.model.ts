@@ -2,122 +2,113 @@
 
 
 export class TicketTableModel {
-  public _ticketid: number;
-  public _ticketoriginalid: number;
-  public _tickettitle: string;
-  public _ticketdescription: string;
-  public _departmentdescription: string;
-  public _prioritydescription: string;
-  public _creationdate: Date;
-  public _updatedate: Date;
-  public _targetdate: Date;
-  public _departmentid: number;
-  public _ticketowner: string;
-  public _creationuser: string;
-  public _updateuser: string;
+  public _TicketId: number;
+  public _TicketOriginalId: number;
+  public _TicketTitle: string;
+  public _TicketDescription: string;
+  public _DepartmentDescription: string;
+  public _PriorityDescription: string;
+  public _CreationDate: Date;
+  public _UpdateDate: Date;
+  public _TargetDate: Date;
+  public _TicketOwner: string;
+  public _CreationUser: string;
+  public _UpdateUser: string;
 
 
-  public get ticketid(): number {
-    return this._ticketid;
+  public get TicketId(): number {
+    return this._TicketId;
   }
 
-  public set ticketid(value: number) {
-    this._ticketid = value;
+  public set TicketId(value: number) {
+    this._TicketId = value;
   }
 
-  public get ticketoriginalid(): number {
-    return this._ticketoriginalid;
+  public get TicketOriginalId(): number {
+    return this._TicketOriginalId;
   }
 
-  public set ticketoriginalid(value: number) {
-    this._ticketoriginalid = value;
+  public set TicketOriginalId(value: number) {
+    this._TicketOriginalId = value;
   }
 
-  public get tickettitle(): string {
-    return this._tickettitle;
+  public get TicketTitle(): string {
+    return this._TicketTitle;
   }
 
-  public set tickettitle(value: string) {
-    this._tickettitle = value;
+  public set TicketTitle(value: string) {
+    this._TicketTitle = value;
   }
 
-  public get ticketdescription(): string {
-    return this._ticketdescription;
+  public get TicketDescription(): string {
+    return this._TicketDescription;
   }
 
-  public set ticketdescription(value: string) {
-    this._ticketdescription = value;
+  public set TicketDescription(value: string) {
+    this._TicketDescription = value;
   }
 
-  public get departmentdescription(): string {
-    return this._departmentdescription;
+  public get DepartmentDescription(): string {
+    return this._DepartmentDescription;
   }
 
-  public set departmentdescription(value: string) {
-    this._departmentdescription = value;
+  public set DepartmentDescription(value: string) {
+    this._DepartmentDescription = value;
   }
 
-  public get prioritydescription(): string {
-    return this._prioritydescription;
+  public get PriorityDescription(): string {
+    return this._PriorityDescription;
   }
 
-  public set prioritydescription(value: string) {
-    this._prioritydescription = value;
+  public set PriorityDescription(value: string) {
+    this._PriorityDescription = value;
   }
 
-  public get creationdate(): Date {
-    return this._creationdate;
+  public get CreationDate(): Date {
+    return this._CreationDate;
   }
 
-  public set creationdate(value: Date) {
-    this._creationdate = value;
+  public set CreationDate(value: Date) {
+    this._CreationDate = value;
   }
 
-  public get updatedate(): Date {
-    return this._updatedate;
+  public get UpdateDate(): Date {
+    return this._UpdateDate;
   }
 
-  public set updatedate(value: Date) {
-    this._updatedate = value;
+  public set UpdateDate(value: Date) {
+    this._UpdateDate = value;
   }
 
-  public get targetdate(): Date {
-    return this._targetdate;
+  public get TargetDate(): Date {
+    return this._TargetDate;
   }
 
-  public set targetdate(value: Date) {
-    this._targetdate = value;
+  public set TargetDate(value: Date) {
+    this._TargetDate = value;
   }
 
-  public get departmentid(): number {
-    return this._departmentid;
+  public get TicketOwner(): string {
+    return this._TicketOwner;
   }
 
-  public set departmentid(value: number) {
-    this._departmentid = value;
+  public set TicketOwner(value: string) {
+    this._TicketOwner = value;
   }
 
-  public get ticketowner(): string {
-    return this._ticketowner;
+  public get CreationUser(): string {
+    return this._CreationUser;
   }
 
-  public set ticketowner(value: string) {
-    this._ticketowner = value;
+  public set CreationUser(value: string) {
+    this._CreationUser = value;
   }
 
-  public get creationuser(): string {
-    return this._creationuser;
+  public get UpdateUser(): string {
+    return this._UpdateUser;
   }
 
-  public set creationuser(value: string) {
-    this._creationuser = value;
-  }
-
-  public get updateuser(): string {
-    return this._updateuser;
-  }
-
-  public set updateuser(value: string) {
-    this._updateuser = value;
+  public set UpdateUser(value: string) {
+    this._UpdateUser = value;
   }
 }
