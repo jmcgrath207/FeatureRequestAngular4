@@ -13,7 +13,7 @@ import * as ClientViewReducers from '../store/client-view.reducers';
 export class TicketInfoComponent implements OnInit {
 
   clientViewState: Observable<ClientViewReducers.State>;
-  arrayPostion: number;
+  arrayPosition: number;
 
 
   constructor(private route: ActivatedRoute,
@@ -24,7 +24,7 @@ export class TicketInfoComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        this.arrayPostion = params.arrayPostion;
+        this.arrayPosition = params.arrayPosition;
         this.clientViewState = this.store.select('clientview');
       }
     );

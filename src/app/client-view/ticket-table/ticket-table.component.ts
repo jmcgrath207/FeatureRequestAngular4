@@ -55,8 +55,8 @@ export class TicketTableComponent  implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  handleRowClick(arrayPostion){
-    this.router.navigate([arrayPostion], {relativeTo: this.route});
+  handleRowClick(arrayPosition){
+    this.router.navigate([arrayPosition], {relativeTo: this.route});
   }
 
 }
