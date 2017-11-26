@@ -22,7 +22,7 @@ export interface State {
 
 // TODO: Create Client View Information
 const initialState: State = {
-  clientview: [ new TicketTableModel(1,'asdf',1,'asdf','asdf','asdfsad','aasf',1,1,1)]
+  clientview: [ new TicketTableModel()]
 };
 
 
