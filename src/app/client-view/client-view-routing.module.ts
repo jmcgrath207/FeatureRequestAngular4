@@ -15,7 +15,7 @@ const recipesRoutes: Routes = [
     {path: '', component: TicketDefaultViewComponent},
     {path: 'add', component: TicketAddComponent},
     {path: 'edit', component: TicketEditComponent},
-    {path: ':ticketId', component: TicketInfoComponent},
+    {path: ':arrayPostion', component: TicketInfoComponent},
   ]},
 ];
 

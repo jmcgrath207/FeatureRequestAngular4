@@ -14,22 +14,22 @@
 
     <ng-container matColumnDef="description">
       <mat-header-cell *matHeaderCellDef mat-sort-header > Description </mat-header-cell>
-      <mat-cell *matCellDef="let row" style="cursor: pointer"
-                (click)="handleRowClick(row)"> {{row.description}} </mat-cell>
+      <mat-cell *matCellDef="let row; let arrayPostion = index" style="cursor: pointer"
+                (click)="handleRowClick(arrayPostion)"> {{row.description}} </mat-cell>
     </ng-container>
 
     <!-- Title Column -->
     <ng-container matColumnDef="title">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
-      <mat-cell *matCellDef="let row" style="cursor: pointer"
-                (click)="handleRowClick(row)"> {{row.title}} </mat-cell>
+      <mat-cell *matCellDef="let row; let arrayPostion = index" style="cursor: pointer"
+                (click)="handleRowClick(arrayPostion)"> {{row.title}} </mat-cell>
     </ng-container>
 
     <!-- Creation Date Column -->
     <ng-container matColumnDef="creationDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Creation Date </mat-header-cell>
-      <mat-cell *matCellDef="let row" style="cursor: pointer"
-                (click)="handleRowClick(row)"> {{row.creationDate}} </mat-cell>
+      <mat-cell *matCellDef="let row; let arrayPostion = index" style="cursor: pointer"
+                (click)="handleRowClick(arrayPostion)"> {{row.creationDate}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
