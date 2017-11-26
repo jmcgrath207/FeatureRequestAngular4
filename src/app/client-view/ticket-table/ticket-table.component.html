@@ -11,45 +11,45 @@
 
 
     <!-- Ticket Title Column-->
-    <ng-container matColumnDef="Ticket Title">
-      <mat-header-cell *matHeaderCellDef mat-sort-header > Description </mat-header-cell>
+    <ng-container matColumnDef="ticketTitle">
+      <mat-header-cell *matHeaderCellDef mat-sort-header > Title </mat-header-cell>
       <mat-cell *matCellDef="let row; let arrayPosition = index" style="cursor: pointer"
-                (click)="handleRowClick(arrayPosition)"> {{row.ticketTitle() }} </mat-cell>
+                (click)="handleRowClick(arrayPosition)"> {{row.ticketTitle }} </mat-cell>
     </ng-container>
 
     <!-- Update Date Column -->
-    <ng-container matColumnDef="Update Date">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+    <ng-container matColumnDef="updateDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Last Update  </mat-header-cell>
       <mat-cell *matCellDef="let row; let arrayPosition = index" style="cursor: pointer"
-                (click)="handleRowClick(arrayPosition)"> {{row.updateDate() }} </mat-cell>
+                (click)="handleRowClick(arrayPosition)"> {{row.updateDate }} </mat-cell>
     </ng-container>
 
     <!-- Department Column -->
-    <ng-container matColumnDef="Department">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Creation Date </mat-header-cell>
+    <ng-container matColumnDef="departmentDescription">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Department </mat-header-cell>
       <mat-cell *matCellDef="let row; let arrayPosition = index" style="cursor: pointer"
-                (click)="handleRowClick(arrayPosition)"> {{row.departmentDescription() }} </mat-cell>
+                (click)="handleRowClick(arrayPosition)"> {{row.departmentDescription }} </mat-cell>
     </ng-container>
 
     <!-- Ticket Owner Column -->
-    <ng-container matColumnDef="Ticket Owner">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Creation Date </mat-header-cell>
+    <ng-container matColumnDef="ticketOwner">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Owner </mat-header-cell>
       <mat-cell *matCellDef="let row; let arrayPosition = index" style="cursor: pointer"
-                (click)="handleRowClick(arrayPosition)"> {{row.ticketOwner()}} </mat-cell>
+                (click)="handleRowClick(arrayPosition)"> {{row.ticketOwner }} </mat-cell>
     </ng-container>
 
     <!-- Ticket Description Column -->
-    <ng-container matColumnDef="Ticket Description">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Creation Date </mat-header-cell>
+    <ng-container matColumnDef="ticketDescription">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
       <mat-cell *matCellDef="let row; let arrayPosition = index" style="cursor: pointer"
-                (click)="handleRowClick(arrayPosition)"> {{row.ticketDescription()}} </mat-cell>
+                (click)="handleRowClick(arrayPosition)"> {{row.ticketDescription }} </mat-cell>
     </ng-container>
 
     <!-- Target Date Column -->
-    <ng-container matColumnDef="Target Date">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Creation Date </mat-header-cell>
+    <ng-container matColumnDef="targetDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Due Date</mat-header-cell>
       <mat-cell *matCellDef="let row; let arrayPosition = index" style="cursor: pointer"
-                (click)="handleRowClick(arrayPosition)"> {{row.targetDate()}} </mat-cell>
+                (click)="handleRowClick(arrayPosition)"> {{row.targetDate }} </mat-cell>
     </ng-container>
 
 
