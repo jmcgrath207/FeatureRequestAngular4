@@ -32,8 +32,9 @@ export class TicketInfoComponent implements OnInit {
 
 
   openComments(){
-    this.router.navigate([{ outlets: { clientViewMain: ['/clientview/comments'] }}]);
-    console.log(this.route)
+    this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['info',this.arrayPosition],
+      clientViewMain: ['comments']}}]);
+    console.log(this.router)
   }
 
 }
