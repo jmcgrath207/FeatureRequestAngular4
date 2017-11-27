@@ -15,8 +15,8 @@ import {TicketCommentsComponent} from "./client-view-main/ticket-comments/ticket
 const recipesRoutes: Routes = [
   {path: 'clientview', component: ClientViewComponent, children: [
     {path: '', component: TicketTableComponent, outlet: 'clientViewMain'},
-    {path: 'comments', component: TicketCommentsComponent, outlet: 'clientViewMain'},
     {path: '', component: TicketDefaultViewComponent, outlet: 'clientViewSidebar'},
+    {path: 'comments', component: TicketCommentsComponent, outlet: 'clientViewMain'},
     {path: 'info/:arrayPosition', component: TicketInfoComponent, outlet: 'clientViewSidebar'},
 
   ]},

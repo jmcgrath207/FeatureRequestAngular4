@@ -1,16 +1,17 @@
 <div class="card">
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
+    <a class="nav-link active" style="cursor: pointer"
+       [routerLink]="['', {outlets: {'clientViewMain': ['comments'],'clientViewSidebar': ['info/:' + arrayPosition] }}]">Comments</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link"  style="cursor: pointer" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" style="cursor: pointer" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
+    <a class="nav-link disabled" style="cursor: pointer" href="#">Disabled</a>
   </li>
 </ul>
 

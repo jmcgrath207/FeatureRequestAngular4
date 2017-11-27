@@ -16,7 +16,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './ticket-table.component.html',
   styleUrls: ['./ticket-table.component.css']
 })
-export class TicketTableComponent  implements OnInit {
+export class TicketTableComponent  implements OnInit  {
 
   displayedColumns = ['ticketTitle',
                        'updateDate',
@@ -39,7 +39,7 @@ export class TicketTableComponent  implements OnInit {
   ngOnInit() {
     // returns true if in edit mode
 
-    this.store.dispatch(new ClientViewActions.FetchClientView());
+
     // TODO: Fix issue where first return is emptry clientview Array
     this.store.select('clientview').take(2).subscribe(
       (clientViewState: ClientViewReducers.State) => {
