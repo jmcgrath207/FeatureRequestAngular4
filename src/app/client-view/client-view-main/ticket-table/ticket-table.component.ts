@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import * as ClientViewActions from '../store/client-view.actions';
-import * as ClientViewReducers from '../store/client-view.reducers';
+import * as ClientViewActions from '../../store/client-view.actions';
+import * as ClientViewReducers from '../../store/client-view.reducers';
 import {Store} from "@ngrx/store";
 import {TicketTableModel} from "./ticket-table.model"
 import 'rxjs/add/operator/take';

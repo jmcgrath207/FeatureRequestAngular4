@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Observable} from "rxjs/Observable";
-import * as ClientViewActions from '../store/client-view.actions';
-import * as ClientViewReducers from '../store/client-view.reducers';
+import * as ClientViewActions from '../../store/client-view.actions';
+import * as ClientViewReducers from '../../store/client-view.reducers';
 
 @Component({
   selector: 'app-ticket-info',

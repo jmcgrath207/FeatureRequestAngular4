@@ -3,7 +3,7 @@
 
 import * as ClientViewActions from './client-view.actions';
 import * as fromApp from '../../store/app.reducers';
-import {TicketTableModel} from "../ticket-table/ticket-table.model";
+import {TicketTableModel} from "../client-view-main/ticket-table/ticket-table.model";
 
 
 

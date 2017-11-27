@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import {FormsModule} from "@angular/forms";
 import { ClientViewComponent } from './client-view.component';
 import {ClientViewRoutingModule} from "./client-view-routing.module";
-import { TicketTableComponent } from './ticket-table/ticket-table.component';
-import { TicketEditComponent } from './ticket-edit/ticket-edit.component';
-import { TicketAddComponent } from './ticket-add/ticket-add.component';
-import { TicketDefaultViewComponent } from './ticket-default-view/ticket-default-view.component';
-import { TicketInfoComponent } from './ticket-info/ticket-info.component';
+import { TicketTableComponent } from './client-view-main/ticket-table/ticket-table.component';
+import { TicketEditComponent } from './client-view-main/ticket-edit/ticket-edit.component';
+import { TicketAddComponent } from './client-view-main/ticket-add/ticket-add.component';
+import { TicketDefaultViewComponent } from './client-view-sidebar/ticket-default-view/ticket-default-view.component';
+import { TicketInfoComponent } from './client-view-sidebar/ticket-info/ticket-info.component';
 import {
   MatInputModule, MatFormFieldModule, MatSelectModule, MatTableModule,
   MatPaginatorModule
@@ -18,8 +18,9 @@ import {StoreModule} from "@ngrx/store";
 import {ClientViewReducer} from "./store/client-view.reducers";
 import {EffectsModule} from "@ngrx/effects";
 import {ClientViewEffects} from "./store/client-view.effects";
-import { TicketHistoryComponent } from './ticket-history/ticket-history.component';
-import { TicketCommentsComponent } from './ticket-comments/ticket-comments.component';
+import { TicketHistoryComponent } from './client-view-main/ticket-history/ticket-history.component';
+import { TicketCommentsComponent } from './client-view-main/ticket-comments/ticket-comments.component';
+
 
 
 @NgModule({
@@ -37,7 +38,14 @@ import { TicketCommentsComponent } from './ticket-comments/ticket-comments.compo
     StoreModule.forFeature('clientview', ClientViewReducer),
     EffectsModule.forFeature([ClientViewEffects])
   ],
-  declarations: [ ClientViewComponent, TicketTableComponent, TicketEditComponent, TicketAddComponent, TicketDefaultViewComponent, TicketInfoComponent, TicketHistoryComponent, TicketCommentsComponent],
+  declarations: [ ClientViewComponent,
+                  TicketTableComponent,
+                  TicketEditComponent,
+                  TicketAddComponent,
+                  TicketDefaultViewComponent,
+                  TicketInfoComponent,
+                  TicketHistoryComponent,
+                  TicketCommentsComponent],
   exports: [
   ],
 })

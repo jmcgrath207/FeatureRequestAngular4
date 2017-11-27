@@ -7,7 +7,7 @@ import 'rxjs/add/operator/withLatestFrom';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {TicketTableModel} from "../ticket-table/ticket-table.model";
+import {TicketTableModel} from "../client-view-main/ticket-table/ticket-table.model";
 
 @Injectable()
 export class ClientViewEffects {

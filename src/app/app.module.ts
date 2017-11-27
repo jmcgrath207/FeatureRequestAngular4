@@ -8,9 +8,10 @@ import {CoreModule} from "./core/core.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {ClientViewModule} from "./client-view/client-view.module";
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

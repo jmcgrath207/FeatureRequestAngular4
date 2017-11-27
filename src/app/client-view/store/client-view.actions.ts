@@ -1,7 +1,7 @@
 
 
 import {Action} from "@ngrx/store";
-import {TicketTableModel} from "../ticket-table/ticket-table.model";
+import {TicketTableModel} from "../client-view-main/ticket-table/ticket-table.model";
 
 export const SET_CLIENT_VIEW =  'SET_CLIENT_VIEW';
 export const FETCH_CLIENT_VIEW =  'FETCH_CLIENT_VIEW';

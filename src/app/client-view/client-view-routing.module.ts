@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 
 import {ClientViewComponent} from "./client-view.component";
-import {TicketAddComponent} from "./ticket-add/ticket-add.component";
-import {TicketDefaultViewComponent} from "./ticket-default-view/ticket-default-view.component";
-import {TicketEditComponent} from "./ticket-edit/ticket-edit.component";
-import {TicketInfoComponent} from "./ticket-info/ticket-info.component";
-import {TicketTableComponent} from "./ticket-table/ticket-table.component";
-import {TicketCommentsComponent} from "./ticket-comments/ticket-comments.component";
+import {TicketAddComponent} from "./client-view-main/ticket-add/ticket-add.component";
+import {TicketDefaultViewComponent} from "./client-view-sidebar/ticket-default-view/ticket-default-view.component";
+import {TicketEditComponent} from "./client-view-main/ticket-edit/ticket-edit.component";
+import {TicketInfoComponent} from "./client-view-sidebar/ticket-info/ticket-info.component";
+import {TicketTableComponent} from "./client-view-main/ticket-table/ticket-table.component";
+import {TicketCommentsComponent} from "./client-view-main/ticket-comments/ticket-comments.component";
 
 
 
