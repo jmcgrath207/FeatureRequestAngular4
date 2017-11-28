@@ -21,7 +21,7 @@ export class ClientViewEffects {
   recipeFetch = this.actions$
     .ofType(ClientViewActions.FETCH_CLIENT_VIEW)
     .switchMap((action: ClientViewActions.FetchClientView) => {
-      return this.httpClient.get<TicketTableModel[]>('http://localhost:8080/api/client_view', {
+      return this.httpClient.get<TicketTableModel[]>('http://localhost:8080/api/getlatesttickets', {
         observe: 'body',
         responseType: 'json'
       });
