@@ -30,9 +30,9 @@ export class TicketInfoComponent implements OnInit {
         this.clientViewState = this.store.select('clientview');
         this.store.select('clientview').take(2).subscribe(
           (clientViewState: ClientViewReducers.State) => {
-            // TODO: Make a check to see if array contains empty TicketObject Object
-            // https://stackoverflow.com/questions/4994201/is-object-empty
-            if (!isEmpty(clientViewState.ticketTable[0])) {
+
+            //Checks to see if there is a empty ticketTable object in the array.
+            if (Object.keys(clientViewState.ticketTable[0]).length !== 0) {
               this.ticketOriginalId = clientViewState.ticketTable[this.arrayPosition].ticketOriginalId
             }
           });
