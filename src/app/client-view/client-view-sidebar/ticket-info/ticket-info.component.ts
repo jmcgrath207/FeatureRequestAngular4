@@ -14,6 +14,7 @@ export class TicketInfoComponent implements OnInit {
 
   clientViewState: Observable<ClientViewReducers.State>;
   arrayPosition: number;
+  ticketOriginalId: number;
 
 
   constructor(private route: ActivatedRoute,
@@ -26,14 +27,23 @@ export class TicketInfoComponent implements OnInit {
       (params: Params) => {
         this.arrayPosition = params.arrayPosition;
         this.clientViewState = this.store.select('clientview');
+        this.store.select('clientview').take(2).subscribe(
+          (clientViewState: ClientViewReducers.State) => {
+            if (clientViewState.clientview.length !== 0) {
+              this.ticketOriginalId = clientViewState.clientview[this.arrayPosition].ticketOriginalId
+            }
+          });
       }
     );
+
+
+
   }
 
 
   openComments(){
     this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['info',this.arrayPosition],
-      clientViewMain: ['comments']}}]);
+      clientViewMain: ['comments',this.ticketOriginalId]}}]);
   }
 
   openTicketTable(){
