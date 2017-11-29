@@ -4,6 +4,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import * as ClientViewActions from '../../store/client-view.actions';
 import * as ClientViewReducers from '../../store/client-view.reducers';
+import {isEmpty} from "rxjs/operator/isEmpty";
 
 @Component({
   selector: 'app-ticket-info',
@@ -29,8 +30,10 @@ export class TicketInfoComponent implements OnInit {
         this.clientViewState = this.store.select('clientview');
         this.store.select('clientview').take(2).subscribe(
           (clientViewState: ClientViewReducers.State) => {
-            if (clientViewState.clientview.length !== 0) {
-              this.ticketOriginalId = clientViewState.clientview[this.arrayPosition].ticketOriginalId
+            // TODO: Make a check to see if array contains empty TicketObject Object
+            // https://stackoverflow.com/questions/4994201/is-object-empty
+            if (!isEmpty(clientViewState.ticketTable[0])) {
+              this.ticketOriginalId = clientViewState.ticketTable[this.arrayPosition].ticketOriginalId
             }
           });
       }

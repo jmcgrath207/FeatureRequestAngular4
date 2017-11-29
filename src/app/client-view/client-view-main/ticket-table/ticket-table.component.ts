@@ -43,8 +43,8 @@ export class TicketTableComponent  implements OnInit  {
     // TODO: Fix issue where first return is emptry clientview Array
     this.store.select('clientview').take(2).subscribe(
       (clientViewState: ClientViewReducers.State) => {
-        if (clientViewState.clientview.length !== 0) {
-          this.dataSource = new MatTableDataSource(clientViewState.clientview);
+        if (clientViewState.ticketTable.length !== 0) {
+          this.dataSource = new MatTableDataSource(clientViewState.ticketTable);
         }
 
       }

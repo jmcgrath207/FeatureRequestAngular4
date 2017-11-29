@@ -18,23 +18,23 @@
   <div class="card-block">
     <h4 class="card-title">Ticket Info</h4>
     <h6 class="card-subtitle mb-2 text-muted">ID</h6>
-    <p class="card-text">{{ (clientViewState | async).clientview[arrayPosition].ticketOriginalId }}</p>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].ticketOriginalId }}</p>
     <h6 class="card-subtitle mb-2 text-muted">Priority</h6>
-    <p class="card-text">{{ (clientViewState | async).clientview[arrayPosition].priorityDescription }}</p>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].priorityDescription }}</p>
     <h6 class="card-subtitle mb-2 text-muted">Description</h6>
-    <p class="card-text">{{ (clientViewState | async).clientview[arrayPosition].ticketDescription }}</p>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].ticketDescription }}</p>
     <h6 class="card-subtitle mb-2 text-muted">Owner</h6>
-    <p class="card-text">{{ (clientViewState | async).clientview[arrayPosition].ticketOwner }}</p>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].ticketOwner }}</p>
     <h6 class="card-subtitle mb-2 text-muted">Department</h6>
-    <p class="card-text">{{ (clientViewState | async).clientview[arrayPosition].departmentDescription }}</p>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].departmentDescription }}</p>
     <h6 class="card-subtitle mb-2 text-muted">Last updated on</h6>
-    <p class="card-text">{{ (clientViewState | async).clientview[arrayPosition].updateDate }}</p>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].updateDate }}</p>
     <h6 class="card-subtitle mb-2 text-muted">Updated by</h6>
-    <p class="card-text">{{ (clientViewState | async).clientview[arrayPosition].updateUser }}</p>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].updateUser }}</p>
     <h6 class="card-subtitle mb-2 text-muted">Created on</h6>
-    <p class="card-text">{{ (clientViewState | async).clientview[arrayPosition].creationDate }}</p>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].creationDate }}</p>
     <h6 class="card-subtitle mb-2 text-muted">Created by</h6>
-    <p class="card-text">{{ (clientViewState | async).clientview[arrayPosition].creationUser }}</p>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].creationUser }}</p>
     <a href="#" class="card-link">Card link</a>
     <a href="#" class="card-link">Another link</a>
   </div>

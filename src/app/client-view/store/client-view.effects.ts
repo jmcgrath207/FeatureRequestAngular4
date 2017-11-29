@@ -14,10 +14,27 @@ export class ClientViewEffects {
 
 
   constructor(private actions$: Actions,
-              private httpClient: HttpClient,
-              private store: Store<ClientViewReducers.FeatureState>) {}
+              private httpClient: HttpClient) {}
 
   @Effect()
+  getLatestTicketsFetch = this.actions$
+    .ofType(ClientViewActions.FETCH_CLIENT_VIEW)
+    .switchMap((action: ClientViewActions.FetchClientView) => {
+      return this.httpClient.get<TicketTableModel[]>('http://localhost:8080/api/getlatesttickets', {
+        observe: 'body',
+        responseType: 'json'
+      });
+    })
+    .map(
+      (ticketTable) => {
+        return {
+          type: ClientViewActions.SET_CLIENT_VIEW,
+          ticketTable: ticketTable
+        };
+      }
+    );
+
+/*  @Effect()
   recipeFetch = this.actions$
     .ofType(ClientViewActions.FETCH_CLIENT_VIEW)
     .switchMap((action: ClientViewActions.FetchClientView) => {
@@ -33,6 +50,6 @@ export class ClientViewEffects {
           payload: clientview
         };
       }
-    );
+    );*/
 
 }
