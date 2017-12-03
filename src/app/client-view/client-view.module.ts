@@ -18,7 +18,6 @@ import {EffectsModule} from "@ngrx/effects";
 import {ClientViewEffects} from "./store/client-view.effects";
 import { TicketHistoryComponent } from './client-view-main/ticket-history/ticket-history.component';
 import { TicketCommentsComponent } from './client-view-main/ticket-comments/ticket-comments.component';
-import { TicketInfoComponent } from './client-view-main/ticket/ticket-info/ticket-info.component';
 import { TicketNewComponent } from './client-view-main/ticket/ticket-new/ticket-new.component';
 import { TicketComponent } from './client-view-main/ticket/ticket.component';
 import { TicketEditComponent } from './client-view-main/ticket/ticket-edit/ticket-edit.component';
@@ -46,7 +45,6 @@ import { TicketEditComponent } from './client-view-main/ticket/ticket-edit/ticke
                   TicketOverViewComponent,
                   TicketHistoryComponent,
                   TicketCommentsComponent,
-                  TicketInfoComponent,
                   TicketNewComponent,
                   TicketComponent,
                   TicketEditComponent],

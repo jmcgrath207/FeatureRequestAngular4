@@ -6,7 +6,7 @@ import {TicketDefaultViewComponent} from "./client-view-sidebar/ticket-default-v
 import {TicketOverViewComponent} from "./client-view-sidebar/ticket-overview/ticket-overview.component";
 import {TicketTableComponent} from "./client-view-main/ticket-table/ticket-table.component";
 import {TicketCommentsComponent} from "./client-view-main/ticket-comments/ticket-comments.component";
-import {TicketInfoComponent} from "./client-view-main/ticket/ticket-info/ticket-info.component";
+import {TicketComponent} from "./client-view-main/ticket/ticket.component";
 
 
 
@@ -15,7 +15,7 @@ const recipesRoutes: Routes = [
   {path: 'clientview', component: ClientViewComponent, children: [
       {path: '', component: TicketTableComponent, outlet: 'clientViewMain'},
       {path: '', component: TicketDefaultViewComponent, outlet: 'clientViewSidebar'},
-      {path: 'info/:arrayPosition', component: TicketInfoComponent, outlet: 'clientViewMain'},
+      {path: 'info/:arrayPosition', component: TicketComponent, outlet: 'clientViewMain'},
       {path: 'comments/:ticketOriginalId', component: TicketCommentsComponent, outlet: 'clientViewMain'},
       {path: 'tickettable', component: TicketTableComponent, outlet: 'clientViewMain'}, // added twice to since multi router outlet needs to match on a path name
       {path: 'overview/:arrayPosition', component: TicketOverViewComponent, outlet: 'clientViewSidebar'},
