@@ -24,8 +24,11 @@ export class TicketComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        this.arrayPosition = params.arrayPosition;
-        this.clientViewState = this.store.select('clientview');
+        if (params.type == 'info') {
+          this.arrayPosition = params.arrayPosition;
+          this.clientViewState = this.store.select('clientview');
+        }
+
       }
     );
   }

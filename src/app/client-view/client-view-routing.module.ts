@@ -15,7 +15,7 @@ const recipesRoutes: Routes = [
   {path: 'clientview', component: ClientViewComponent, children: [
       {path: '', component: TicketTableComponent, outlet: 'clientViewMain'},
       {path: '', component: TicketDefaultViewComponent, outlet: 'clientViewSidebar'},
-      {path: 'info/:arrayPosition', component: TicketComponent, outlet: 'clientViewMain'},
+      {path: ':type/:arrayPosition', component: TicketComponent, outlet: 'clientViewMain'},
       {path: 'comments/:ticketOriginalId', component: TicketCommentsComponent, outlet: 'clientViewMain'},
       {path: 'tickettable', component: TicketTableComponent, outlet: 'clientViewMain'}, // added twice to since multi router outlet needs to match on a path name
       {path: 'overview/:arrayPosition', component: TicketOverViewComponent, outlet: 'clientViewSidebar'},
