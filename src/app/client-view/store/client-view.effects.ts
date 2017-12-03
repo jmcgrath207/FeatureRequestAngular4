@@ -34,7 +34,7 @@ export class ClientViewEffects {
     );
 
   @Effect()
-  recipeFetch = this.actions$
+  getcommentsbyticketoriginalidFetch = this.actions$
     .ofType(ClientViewActions.FETCH_COMMENTS_TABLE)
     .switchMap((action: ClientViewActions.FetchCommentsTable) => {
       return this.httpClient.
