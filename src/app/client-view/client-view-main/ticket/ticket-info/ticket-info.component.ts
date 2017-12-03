@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import * as ClientViewReducers from "../../store/client-view.reducers";
+import * as ClientViewReducers from "../../../store/client-view.reducers";
 import {Observable} from "rxjs/Observable";
 
 @Component({

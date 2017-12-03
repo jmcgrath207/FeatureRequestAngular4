@@ -5,8 +5,6 @@ import {FormsModule} from "@angular/forms";
 import { ClientViewComponent } from './client-view.component';
 import {ClientViewRoutingModule} from "./client-view-routing.module";
 import { TicketTableComponent } from './client-view-main/ticket-table/ticket-table.component';
-import { TicketEditComponent } from './client-view-main/ticket-edit/ticket-edit.component';
-import { TicketAddComponent } from './client-view-main/ticket-add/ticket-add.component';
 import { TicketDefaultViewComponent } from './client-view-sidebar/ticket-default-view/ticket-default-view.component';
 import { TicketOverViewComponent } from './client-view-sidebar/ticket-overview/ticket-overview.component';
 import {
@@ -20,7 +18,10 @@ import {EffectsModule} from "@ngrx/effects";
 import {ClientViewEffects} from "./store/client-view.effects";
 import { TicketHistoryComponent } from './client-view-main/ticket-history/ticket-history.component';
 import { TicketCommentsComponent } from './client-view-main/ticket-comments/ticket-comments.component';
-import { TicketInfoComponent } from './client-view-main/ticket-info/ticket-info.component';
+import { TicketInfoComponent } from './client-view-main/ticket/ticket-info/ticket-info.component';
+import { TicketNewComponent } from './client-view-main/ticket/ticket-new/ticket-new.component';
+import { TicketComponent } from './client-view-main/ticket/ticket.component';
+import { TicketEditComponent } from './client-view-main/ticket/ticket-edit/ticket-edit.component';
 
 
 
@@ -41,13 +42,14 @@ import { TicketInfoComponent } from './client-view-main/ticket-info/ticket-info.
   ],
   declarations: [ ClientViewComponent,
                   TicketTableComponent,
-                  TicketEditComponent,
-                  TicketAddComponent,
                   TicketDefaultViewComponent,
                   TicketOverViewComponent,
                   TicketHistoryComponent,
                   TicketCommentsComponent,
-                  TicketInfoComponent],
+                  TicketInfoComponent,
+                  TicketNewComponent,
+                  TicketComponent,
+                  TicketEditComponent],
   exports: [
   ],
 })
