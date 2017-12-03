@@ -1,20 +1,4 @@
 <div class="card">
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link"  style="cursor: pointer"
-       (click)="openTicketTable()" >Ticket List</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" style="cursor: pointer" (click)="openComments()">Comments</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" style="cursor: pointer" (click)="openTicketInfo()">Full Info</a>
-  </li>
-<!--  <li class="nav-item">
-    <a class="nav-link disabled" style="cursor: pointer" href="#">Disabled</a>
-  </li>-->
-</ul>
-
   <div class="card-block">
     <h4 class="card-title">Ticket Info</h4>
     <h6 class="card-subtitle mb-2 text-muted">ID</h6>
@@ -35,7 +19,5 @@
     <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].creationDate }}</p>
     <h6 class="card-subtitle mb-2 text-muted">Created by</h6>
     <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].creationUser }}</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
   </div>
 </div>

@@ -20,6 +20,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {ClientViewEffects} from "./store/client-view.effects";
 import { TicketHistoryComponent } from './client-view-main/ticket-history/ticket-history.component';
 import { TicketCommentsComponent } from './client-view-main/ticket-comments/ticket-comments.component';
+import { TicketInfoComponent } from './client-view-main/ticket-info/ticket-info.component';
 
 
 
@@ -45,7 +46,8 @@ import { TicketCommentsComponent } from './client-view-main/ticket-comments/tick
                   TicketDefaultViewComponent,
                   TicketOverViewComponent,
                   TicketHistoryComponent,
-                  TicketCommentsComponent],
+                  TicketCommentsComponent,
+                  TicketInfoComponent],
   exports: [
   ],
 })

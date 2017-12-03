@@ -50,4 +50,9 @@ export class TicketOverViewComponent implements OnInit {
       clientViewMain: ['tickettable']}}]);
   }
 
+  openTicketInfo(){
+    this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['overview',this.arrayPosition],
+        clientViewMain: ['info',this.arrayPosition]}}]);
+  }
+
 }
