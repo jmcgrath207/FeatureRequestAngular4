@@ -24,6 +24,7 @@ export class TicketCommentsComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.ticketOriginalId = params.ticketOriginalId;
+        this.store.dispatch(new ClientViewActions.FetchCommentsTable(this.ticketOriginalId));
         this.clientViewState = this.store.select('clientview');
       }
     );

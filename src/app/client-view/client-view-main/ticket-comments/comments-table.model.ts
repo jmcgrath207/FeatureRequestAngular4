@@ -1,7 +1,7 @@
 
 
 
-export class CommmetTableModel {
+export class CommentsTableModel {
 
   public ticketOriginalId: number;
   public commentDescription: string;

@@ -1,3 +1,14 @@
-<p>
-  ticket-comments works!
-</p>
+
+
+
+
+
+<ul>
+  <li  *ngFor="let item of  (clientViewState | async).commentsTable">
+
+    {{ item.creationUser}}
+    {{ item.commentDescription }}
+
+  </li>
+
+</ul>

@@ -38,9 +38,6 @@ export class TicketInfoComponent implements OnInit {
           });
       }
     );
-
-
-
   }
 
 

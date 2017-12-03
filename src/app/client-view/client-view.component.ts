@@ -13,7 +13,7 @@ export class ClientViewComponent implements OnInit {
   constructor(private store: Store<ClientViewReducers.FeatureState>) {}
 
   ngOnInit() {
-    this.store.dispatch(new ClientViewActions.FetchClientView());
+    this.store.dispatch(new ClientViewActions.FetchTicketTable());
   }
 
 }
