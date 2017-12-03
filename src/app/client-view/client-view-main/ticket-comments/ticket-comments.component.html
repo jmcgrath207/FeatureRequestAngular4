@@ -6,9 +6,10 @@
 <ul>
   <li  *ngFor="let item of  (clientViewState | async).commentsTable">
 
-    {{ item.creationUser}}
-    {{ item.commentDescription }}
-
+    Creation User: {{ item.creationUser}}
+    Update User: {{ item.updateUser}}
+    Comment: Description: {{ item.commentDescription }}
+  <br>
   </li>
 
 </ul>
