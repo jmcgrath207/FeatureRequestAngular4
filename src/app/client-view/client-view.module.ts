@@ -8,7 +8,7 @@ import { TicketTableComponent } from './client-view-main/ticket-table/ticket-tab
 import { TicketEditComponent } from './client-view-main/ticket-edit/ticket-edit.component';
 import { TicketAddComponent } from './client-view-main/ticket-add/ticket-add.component';
 import { TicketDefaultViewComponent } from './client-view-sidebar/ticket-default-view/ticket-default-view.component';
-import { TicketInfoComponent } from './client-view-sidebar/ticket-info/ticket-info.component';
+import { TicketOverViewComponent } from './client-view-sidebar/ticket-overview/ticket-overview.component';
 import {
   MatInputModule, MatFormFieldModule, MatSelectModule, MatTableModule,
   MatPaginatorModule
@@ -43,7 +43,7 @@ import { TicketCommentsComponent } from './client-view-main/ticket-comments/tick
                   TicketEditComponent,
                   TicketAddComponent,
                   TicketDefaultViewComponent,
-                  TicketInfoComponent,
+                  TicketOverViewComponent,
                   TicketHistoryComponent,
                   TicketCommentsComponent],
   exports: [

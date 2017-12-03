@@ -59,7 +59,7 @@ export class TicketTableComponent  implements OnInit  {
   }
 
   handleRowClick(arrayPosition){
-    this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['info',arrayPosition],
+    this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['overview',arrayPosition],
       clientViewMain: ['tickettable']}}]);
   }
 

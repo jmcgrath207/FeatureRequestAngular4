@@ -1,17 +1,16 @@
+///<reference path="../../../../../node_modules/@angular/core/src/metadata/directives.d.ts"/>
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Observable} from "rxjs/Observable";
-import * as ClientViewActions from '../../store/client-view.actions';
 import * as ClientViewReducers from '../../store/client-view.reducers';
-import {isEmpty} from "rxjs/operator/isEmpty";
 
 @Component({
-  selector: 'app-ticket-info',
-  templateUrl: './ticket-info.component.html',
-  styleUrls: ['./ticket-info.component.css']
+  selector: 'app-ticket-overview',
+  templateUrl: './ticket-overview.component.html',
+  styleUrls: ['./ticket-overview.component.css']
 })
-export class TicketInfoComponent implements OnInit {
+export class TicketOverViewComponent implements OnInit {
 
   clientViewState: Observable<ClientViewReducers.State>;
   arrayPosition: number;
@@ -42,12 +41,12 @@ export class TicketInfoComponent implements OnInit {
 
 
   openComments(){
-    this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['info',this.arrayPosition],
+    this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['overview',this.arrayPosition],
       clientViewMain: ['comments',this.ticketOriginalId]}}]);
   }
 
   openTicketTable(){
-    this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['info',this.arrayPosition],
+    this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['overview',this.arrayPosition],
       clientViewMain: ['tickettable']}}]);
   }
 
