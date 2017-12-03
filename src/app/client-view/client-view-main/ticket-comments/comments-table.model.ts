@@ -3,6 +3,7 @@
 
 export class CommentsTableModel {
 
+  public commentId: number;
   public ticketOriginalId: number;
   public commentDescription: string;
   public creationDate: Date;
