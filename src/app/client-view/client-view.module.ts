@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ClientViewComponent } from './client-view.component';
 import {ClientViewRoutingModule} from "./client-view-routing.module";
 import { TicketTableComponent } from './client-view-main/ticket-table/ticket-table.component';
@@ -36,6 +36,7 @@ import { TicketEditComponent } from './client-view-main/ticket/ticket-edit/ticke
     MatTableModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
+    ReactiveFormsModule,
     StoreModule.forFeature('clientview', ClientViewReducer),
     EffectsModule.forFeature([ClientViewEffects])
   ],

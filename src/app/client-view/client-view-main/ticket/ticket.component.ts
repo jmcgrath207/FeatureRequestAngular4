@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {Observable} from "rxjs/Observable";
 import * as ClientViewReducers from "../../store/client-view.reducers";
 
 @Component({
@@ -11,13 +11,13 @@ import * as ClientViewReducers from "../../store/client-view.reducers";
 })
 export class TicketComponent implements OnInit {
 
-  clientViewState: Observable<ClientViewReducers.State>;
   arrayPosition: number;
-  ticketOriginalId: number;
+  ticketForm: FormGroup;
 
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              public fb: FormBuilder,
               private store: Store<ClientViewReducers.FeatureState>) { }
 
 
@@ -26,11 +26,24 @@ export class TicketComponent implements OnInit {
       (params: Params) => {
         if (params.type == 'info') {
           this.arrayPosition = params.arrayPosition;
-          this.clientViewState = this.store.select('clientview');
+          this.initForm();
         }
 
       }
     );
+  }
+
+
+  private initForm() {
+      this.store.select('clientview')
+        .take(1)
+        .subscribe((clientViewState: ClientViewReducers.State) => {
+          const ticketTable = clientViewState.ticketTable[this.arrayPosition];
+          this.ticketForm = this.fb.group({
+            ticketTitle: [ticketTable.ticketTitle, Validators.required]
+            })
+      });
+
   }
 
 }
