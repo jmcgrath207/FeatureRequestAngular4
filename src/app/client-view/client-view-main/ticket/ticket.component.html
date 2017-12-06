@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" *ngIf="editMode">
     <form  novalidate [formGroup]="ticketForm" class="form-horizontal">
       <div class="row">
         <div class="col-xs-12">
@@ -21,4 +21,32 @@
       </div>
     </form>
 
+</div>
+
+<div class=" text-center" *ngIf="infoMode">
+
+<div class="card-block">
+    <h4 class="card-title">Ticket Information</h4>
+    <h6 class="card-subtitle mb-2 text-muted">ID</h6>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].ticketOriginalId }}</p>
+    <h6 class="card-subtitle mb-2 text-muted">Priority</h6>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].priorityDescription }}</p>
+    <h6 class="card-subtitle mb-2 text-muted">Description</h6>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].ticketDescription }}</p>
+    <h6 class="card-subtitle mb-2 text-muted">Owner</h6>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].ticketOwner }}</p>
+    <h6 class="card-subtitle mb-2 text-muted">Department</h6>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].departmentDescription }}</p>
+    <h6 class="card-subtitle mb-2 text-muted">Last updated on</h6>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].updateDate }}</p>
+    <h6 class="card-subtitle mb-2 text-muted">Updated by</h6>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].updateUser }}</p>
+    <h6 class="card-subtitle mb-2 text-muted">Created on</h6>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].creationDate }}</p>
+    <h6 class="card-subtitle mb-2 text-muted">Created by</h6>
+    <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].creationUser }}</p>
+
+
+
+</div>
 </div>
