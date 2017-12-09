@@ -21,6 +21,7 @@ import { TicketCommentsComponent } from './client-view-main/ticket-comments/tick
 import { TicketNewComponent } from './client-view-main/ticket/ticket-new/ticket-new.component';
 import { TicketComponent } from './client-view-main/ticket/ticket.component';
 import { TicketEditComponent } from './client-view-main/ticket/ticket-edit/ticket-edit.component';
+import {PipeModule} from "../shared/pipes/pipe.module";
 
 
 
@@ -37,6 +38,7 @@ import { TicketEditComponent } from './client-view-main/ticket/ticket-edit/ticke
     BrowserAnimationsModule,
     MatPaginatorModule,
     ReactiveFormsModule,
+    PipeModule,
     StoreModule.forFeature('clientview', ClientViewReducer),
     EffectsModule.forFeature([ClientViewEffects])
   ],

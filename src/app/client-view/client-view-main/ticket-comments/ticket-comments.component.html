@@ -1,15 +1,28 @@
 
 
+<!--Comment#  {{ (clientViewState | async).commentsTable.indexOf(item) }}-->
 
 
 
-<ul>
-  <li  *ngFor="let item of  (clientViewState | async).commentsTable">
-
-    Creation User: {{ item.creationUser}}
-    Update User: {{ item.updateUser}}
-    Comment: Description: {{ item.commentDescription }}
+<div class="card" *ngFor="let item of  (clientViewState | async).commentsTable | reverse ">
   <br>
-  </li>
+  <div class="card-header">
+<!--    Comment # {{i}}-->
+  </div>
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+      <p>{{ item.commentDescription }}</p>
 
-</ul>
+      <footer>
+        <cite title="{{ item.creationUser}}">
+        Created by: <a style="cursor: pointer">{{ item.creationUser}}</a>
+
+        </cite>
+        <cite title="{{ item.updateUser}}">
+          Updated by: <a style="cursor: pointer">{{ item.updateUser}}</a>
+        </cite>
+      </footer>
+
+    </blockquote>
+  </div>
+</div>
