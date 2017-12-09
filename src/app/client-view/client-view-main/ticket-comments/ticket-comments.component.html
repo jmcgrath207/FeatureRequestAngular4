@@ -4,10 +4,9 @@
 
 
 
-<div class="card" *ngFor="let item of  (clientViewState | async).commentsTable | reverse ">
+<div class="card" *ngFor="let item of  (clientViewState | reverseiterate | async).commentsTable ">
   <br>
-  <div class="card-header">
-<!--    Comment # {{i}}-->
+    Comment # {{item.commentNumber}}
   </div>
   <div class="card-block">
     <blockquote class="card-blockquote">
@@ -25,4 +24,4 @@
 
     </blockquote>
   </div>
-</div>
+

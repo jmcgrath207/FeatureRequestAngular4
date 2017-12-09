@@ -14,10 +14,13 @@ export class TicketCommentsComponent implements OnInit {
 
   clientViewState: Observable<ClientViewReducers.State>;
   ticketOriginalId: number;
+  count: number[];
 
 
   constructor(private route: ActivatedRoute,
-              private store: Store<ClientViewReducers.FeatureState>) { }
+              private store: Store<ClientViewReducers.FeatureState>) {
+              this.count = [ 3,2,1]
+  }
 
 
   ngOnInit() {
