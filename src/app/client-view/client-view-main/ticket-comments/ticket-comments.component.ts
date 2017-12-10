@@ -15,13 +15,13 @@ export class TicketCommentsComponent implements OnInit {
 
   newCommentTable: any;
   ticketOriginalId: number;
+  latestCommmentNumber: number;
 
 
 
   constructor(private route: ActivatedRoute,
               private store: Store<FeatureState>,
-              ) {
-  }
+              ) {}
 
 
   ngOnInit() {
@@ -39,7 +39,7 @@ export class TicketCommentsComponent implements OnInit {
 
               });
               this.newCommentTable = data;
-              console.log('asdfasdf')
+              this.latestCommmentNumber =  data.length
             }
           }
 

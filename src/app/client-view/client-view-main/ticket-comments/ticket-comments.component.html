@@ -1,29 +1,45 @@
 
+<div class="card" *ngFor="let item of newCommentTable"
+     style="margin: 1%;">
 
-<!--Comment#  {{ (clientViewState | async).commentsTable.indexOf(item) }}-->
 
 
+  <div class="card-header">
+    <div *ngIf="item.commentNumber == latestCommmentNumber">
+    <em>Comment # {{item.commentNumber}}
+      <strong style="padding-left:1em">Latest</strong></em>
+    </div>
 
-<!--<div class="card" *ngFor="let item of  (clientViewState   | async | reverseiterate).commentsTable ">-->
-<div class="card" *ngFor="let item of newCommentTable">
-  <br>
-    Comment # {{item.commentNumber}}
+    <em *ngIf="item.commentNumber != latestCommmentNumber"> Comment # {{item.commentNumber}} </em>
+
+  </div>
 
   <div class="card-block">
     <blockquote class="card-blockquote">
       <p>{{ item.commentDescription }}</p>
-
       <footer>
-        <cite title="{{ item.creationUser}}">
-        Created by: <a style="cursor: pointer">{{ item.creationUser}}</a>
 
+
+        <cite title="{{ item.creationUser}}">
+          <small>Created by: <a>{{ item.creationUser}}</a></small>
         </cite>
+
+
+        <cite title="{{ item.creationDate}}">
+          <small>Created Time: {{ item.creationDate}}</small>
+        </cite>
+
         <cite title="{{ item.updateUser}}">
-          Updated by: <a style="cursor: pointer">{{ item.updateUser}}</a>
+          <small>Updated by: <a>{{ item.updateUser}}</a></small>
         </cite>
+
+
+        <cite title="{{ item.updateDate}}">
+          <small>Update Time: {{ item.updateDate}}</small>
+        </cite>
+
       </footer>
 
     </blockquote>
   </div>
-
 </div>

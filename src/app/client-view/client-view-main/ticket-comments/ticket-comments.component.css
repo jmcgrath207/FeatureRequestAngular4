@@ -1,0 +1,26 @@
+
+
+p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+/* TODO: fix hyperlink color*/
+a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}
+
+blockquote {
+  margin: 0 0;
+}
+
+footer {
+  background: #ebebeb;
+}
+
+cite {
+  padding-left: 1em;
+}
