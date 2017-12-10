@@ -8,7 +8,7 @@ import {CommentsTableModel} from "../client-view-main/ticket-comments/comments-t
 
 
 
-
+/// Interface Creation
 
 export interface FeatureState extends fromApp.AppState{
   clientview: State;
@@ -27,6 +27,9 @@ const initialState: State = {
   ticketTable: [ new TicketTableModel()],
   commentsTable: [new CommentsTableModel()]
 };
+
+
+// Reducers
 
 
 export function  ClientViewReducer(state = initialState, action: ClientViewActions.ClientViewActions) {
