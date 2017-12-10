@@ -6,12 +6,12 @@ p {
 }
 
 
-/* TODO: fix hyperlink color*/
-a {
+a:not([href]):not([tabindex]) {
+  color: blue;
   cursor: pointer;
   text-decoration: underline;
-  color: blue;
 }
+
 
 blockquote {
   margin: 0 0;
