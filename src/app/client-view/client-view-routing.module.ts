@@ -10,7 +10,7 @@ import {TicketComponent} from "./client-view-main/ticket/ticket.component";
 
 
 
-// TODO: Need to fix routing issue where router does not redirect when matching
+
 const recipesRoutes: Routes = [
   {path: 'clientview', component: ClientViewComponent, children: [
       {path: '', component: TicketTableComponent, outlet: 'clientViewMain'},

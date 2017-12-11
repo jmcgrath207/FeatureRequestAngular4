@@ -22,7 +22,7 @@ export interface State {
 }
 
 
-// TODO: Create Client View Information
+
 const initialState: State = {
   ticketTable: [ new TicketTableModel()],
   commentsTable: [new CommentsTableModel()]
