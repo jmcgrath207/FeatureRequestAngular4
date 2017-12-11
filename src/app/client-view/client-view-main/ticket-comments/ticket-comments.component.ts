@@ -16,6 +16,7 @@ export class TicketCommentsComponent implements OnInit {
   newCommentTable: any;
   ticketOriginalId: number;
   latestCommmentNumber: number;
+  openCommentHistoryBool: boolean;
 
 
 
@@ -27,6 +28,7 @@ export class TicketCommentsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
+        this.openCommentHistoryBool = false;
         this.ticketOriginalId = params.ticketOriginalId;
         this.store.dispatch(new FetchCommentsTable(this.ticketOriginalId));
         this.store.select(selectCommentTable).take(2).subscribe(
@@ -46,6 +48,10 @@ export class TicketCommentsComponent implements OnInit {
         );
       }
     );
+  }
+// TODO: Make Comment History Bool toogle on only one comment at a time
+  openCommentHistory() {
+    this.openCommentHistoryBool = true;
   }
 
 }

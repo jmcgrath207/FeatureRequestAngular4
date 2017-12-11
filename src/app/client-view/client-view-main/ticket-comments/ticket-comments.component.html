@@ -41,14 +41,56 @@
 
         <!-- ##TODO: Create Store Produecure that return ticket history based on CommentOriginalID -->
         <!-- ##TODO: Redo Store Produecure for comments to only return comments by CommentOriginalID -->
-        <!-- ##TODO: Create Drop down for History to show comment change history -->
         <cite class="float-right" title="History" style="padding-right: 2%">
-          <small><a>History</a></small>
+          <small><a (click)="openCommentHistory()">History</a></small>
+        </cite>
+      </footer>
+
+    </blockquote>
+  </div>
+
+
+
+  <!--DROP DOWN-->
+
+<div *ngIf="openCommentHistoryBool">
+  <div class="card-header">
+    <div *ngIf="item.commentNumber == latestCommmentNumber">
+      <small><em>Comment # {{item.commentNumber}}
+        <strong style="padding-left:1em">Latest</strong></em></small>
+    </div>
+
+    <small><em *ngIf="item.commentNumber != latestCommmentNumber"> Comment # {{item.commentNumber}} </em></small>
+
+  </div>
+
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+      <p>{{ item.commentDescription }}</p>
+      <footer>
+
+
+        <cite title="{{ item.creationUser}}">
+          <small>Created by: <a>{{ item.creationUser}}</a></small>
         </cite>
 
+
+        <cite title="{{ item.creationDate}}">
+          <small>Created Time: {{ item.creationDate}}</small>
+        </cite>
+
+        <cite title="{{ item.updateUser}}">
+          <small>Updated by: <a>{{ item.updateUser}}</a></small>
+        </cite>
+
+
+        <cite title="{{ item.updateDate}}">
+          <small>Update Time: {{ item.updateDate}}</small>
+        </cite>
 
       </footer>
 
     </blockquote>
   </div>
+</div>
 </div>
