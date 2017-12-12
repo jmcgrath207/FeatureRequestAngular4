@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {ActivatedRoute, Params} from "@angular/router";
 import {CommentsTableModel} from "./comments-table.model";
@@ -16,7 +16,6 @@ export class TicketCommentsComponent implements OnInit {
   newCommentTable: any;
   ticketOriginalId: number;
   latestCommmentNumber: number;
-  openCommentHistoryBool: boolean;
 
 
 
@@ -28,7 +27,6 @@ export class TicketCommentsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        this.openCommentHistoryBool = false;
         this.ticketOriginalId = params.ticketOriginalId;
         this.store.dispatch(new FetchCommentsTable(this.ticketOriginalId));
         this.store.select(selectCommentTable).take(2).subscribe(
@@ -37,6 +35,7 @@ export class TicketCommentsComponent implements OnInit {
               let commmentNumber = data.length;
               data.forEach(function (element) {
                 element["commentNumber"] = commmentNumber;
+                element["showHistory"] = false;
                 commmentNumber = commmentNumber - 1;
 
               });
@@ -49,9 +48,18 @@ export class TicketCommentsComponent implements OnInit {
       }
     );
   }
-// TODO: Make Comment History Bool toogle on only one comment at a time
-  openCommentHistory() {
-    this.openCommentHistoryBool = true;
+
+  toggleCommentHistory(i: number) {
+    if(this.newCommentTable[i]["showHistory"] == false){
+      this.newCommentTable[i]["showHistory"] = true;
+    }
+    else {
+      this.newCommentTable[i]["showHistory"] = false
+    }
+
   }
+
+
+
 
 }

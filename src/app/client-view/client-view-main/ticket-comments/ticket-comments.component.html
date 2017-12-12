@@ -1,5 +1,5 @@
 
-<div class="card" *ngFor="let item of newCommentTable"
+<div class="card" *ngFor="let item of newCommentTable;let i = index"
      style="margin: 1%;">
 
 
@@ -42,7 +42,7 @@
         <!-- ##TODO: Create Store Produecure that return ticket history based on CommentOriginalID -->
         <!-- ##TODO: Redo Store Produecure for comments to only return comments by CommentOriginalID -->
         <cite class="float-right" title="History" style="padding-right: 2%">
-          <small><a (click)="openCommentHistory()">History</a></small>
+          <small><button (click)="toggleCommentHistory(i)" >History</button></small>
         </cite>
       </footer>
 
@@ -53,7 +53,7 @@
 
   <!--DROP DOWN-->
 
-<div *ngIf="openCommentHistoryBool">
+<div  *ngIf="item.showHistory">
   <div class="card-header">
     <div *ngIf="item.commentNumber == latestCommmentNumber">
       <small><em>Comment # {{item.commentNumber}}
