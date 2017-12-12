@@ -24,3 +24,17 @@ footer {
 cite {
   padding-left: 1em;
 }
+
+
+/* TODO: Need to correct Button Display*/
+.btn-group-sm>.btn, .btn-sm {
+/*  padding-top:.001rem ;*/
+  padding-bottom: .001rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  font-size: .97rem;
+  line-height: 1;
+  border-radius: .1rem;
+}
+
+
