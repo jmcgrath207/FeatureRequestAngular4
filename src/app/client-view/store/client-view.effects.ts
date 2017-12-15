@@ -53,4 +53,29 @@ export class ClientViewEffects {
       }
     );
 
+
+
+  @Effect()
+  getcommenthistorybycommentoriginalid = this.actions$
+    .ofType(ClientViewActions.FETCH_COMMENT_HISTORY_TABLE)
+    .switchMap((action: ClientViewActions.FetchCommentHistoryTable) => {
+      return this.httpClient.
+      get<CommentsTableModel[]>('http://localhost:8080/api/getcommenthistorybycommentoriginalid/' + action.commentOriginalId,
+        {
+          observe: 'body',
+          responseType: 'json'
+        });
+    })
+    .map(
+      (commentsHistoryTable) => {
+        return {
+          type: ClientViewActions.SET_COMMENT_HISTORY_TABLE,
+          commentsHistoryTable: commentsHistoryTable
+        };
+      }
+    );
+
+
+
+
 }

@@ -30,4 +30,4 @@ export function checkForEmptyState(data: FeatureState) {
 
 export const selectCommentTable = (state:FeatureState) => state.clientview.commentsTable;
 
-
+export const selectCommentHistoryTable = (state:FeatureState) => state.clientview.commentsHistoryTable;

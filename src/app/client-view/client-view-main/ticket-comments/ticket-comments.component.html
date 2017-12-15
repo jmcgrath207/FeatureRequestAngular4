@@ -17,6 +17,7 @@
   <div class="card-block">
     <blockquote class="card-blockquote">
       <p>{{ item.commentDescription }}</p>
+
       <footer>
 
 
@@ -39,10 +40,8 @@
         </cite>
 
 
-        <!-- ##TODO: Create Store Produecure that return ticket history based on CommentOriginalID -->
-        <!-- ##TODO: Redo Store Produecure for comments to only return comments by CommentOriginalID -->
         <cite class="float-right" title="History" style="padding-right: 2%">
-          <small><button (click)="toggleCommentHistory(i)" >History</button></small>
+          <small><button class="btn btn-info btn-sm" (click)="toggleCommentHistory(i)" >History</button></small>
         </cite>
       </footer>
 
@@ -54,43 +53,45 @@
   <!--DROP DOWN-->
 
 <div  *ngIf="item.showHistory">
+  <div *ngFor="let item2 of newCommentHistoryTable;">
   <div class="card-header">
-    <div *ngIf="item.commentNumber == latestCommmentNumber">
-      <small><em>Comment # {{item.commentNumber}}
-        <strong style="padding-left:1em">Latest</strong></em></small>
+    <div *ngIf="item2.commentNumber == latestCommmentHistoryNumber">
+      <small><em>Comment # {{item2.commentNumber}}
+        <strong style="padding-left:1em">Latest History</strong></em></small>
     </div>
 
-    <small><em *ngIf="item.commentNumber != latestCommmentNumber"> Comment # {{item.commentNumber}} </em></small>
+    <small><em *ngIf="item2.commentNumber != latestCommmentHistoryNumber"> Comment # {{item2.commentNumber}} </em></small>
 
   </div>
 
   <div class="card-block">
     <blockquote class="card-blockquote">
-      <p>{{ item.commentDescription }}</p>
+      <p>{{ item2.commentDescription }}</p>
       <footer>
 
 
-        <cite title="{{ item.creationUser}}">
-          <small>Created by: <a>{{ item.creationUser}}</a></small>
+        <cite title="{{ item2.creationUser}}">
+          <small>Created by: <a>{{ item2.creationUser}}</a></small>
         </cite>
 
 
-        <cite title="{{ item.creationDate}}">
-          <small>Created Time: {{ item.creationDate}}</small>
+        <cite title="{{ item2.creationDate}}">
+          <small>Created Time: {{ item2.creationDate}}</small>
         </cite>
 
-        <cite title="{{ item.updateUser}}">
-          <small>Updated by: <a>{{ item.updateUser}}</a></small>
+        <cite title="{{ item2.updateUser}}">
+          <small>Updated by: <a>{{ item2.updateUser}}</a></small>
         </cite>
 
 
-        <cite title="{{ item.updateDate}}">
-          <small>Update Time: {{ item.updateDate}}</small>
+        <cite title="{{ item2.updateDate}}">
+          <small>Update Time: {{ item2.updateDate}}</small>
         </cite>
 
       </footer>
 
     </blockquote>
+  </div>
   </div>
 </div>
 </div>

@@ -1,10 +1,11 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {ActivatedRoute, Params} from "@angular/router";
-import {CommentsTableModel} from "./comments-table.model";
 import {FeatureState} from "../../store/client-view.reducers";
-import {selectCommentTable} from "../../store/client-view.selector";
-import {FetchCommentsTable} from "../../store/client-view.actions";
+import {selectCommentHistoryTable, selectCommentTable} from "../../store/client-view.selector";
+import {FetchCommentHistoryTable, FetchCommentsTable} from "../../store/client-view.actions";
+import "rxjs/add/operator/takeWhile";
+
 
 @Component({
   selector: 'app-ticket-comments',
@@ -14,14 +15,17 @@ import {FetchCommentsTable} from "../../store/client-view.actions";
 export class TicketCommentsComponent implements OnInit {
 
   newCommentTable: any;
+  newCommentHistoryTable: any;
   ticketOriginalId: number;
   latestCommmentNumber: number;
+  latestCommmentHistoryNumber: number;
+
+
 
 
 
   constructor(private route: ActivatedRoute,
-              private store: Store<FeatureState>,
-              ) {}
+              private store: Store<FeatureState>) {}
 
 
   ngOnInit() {
@@ -49,12 +53,28 @@ export class TicketCommentsComponent implements OnInit {
     );
   }
 
-  toggleCommentHistory(i: number) {
-    if(this.newCommentTable[i]["showHistory"] == false){
-      this.newCommentTable[i]["showHistory"] = true;
+  toggleCommentHistory(index: number) {
+    if(this.newCommentTable[index]["showHistory"] == false){
+      this.store.dispatch(new FetchCommentHistoryTable(this.newCommentTable[index]["commentOriginalId"]));
+      this.store.select(selectCommentHistoryTable).take(2).subscribe(
+        (data: any) => {
+          if (Object.keys(data[0]).length !== 0) {
+            let commmentNumber = data.length;
+            data.forEach(function (element) {
+              element["commentNumber"] = commmentNumber;
+              commmentNumber = commmentNumber - 1;
+
+            });
+            this.newCommentHistoryTable = data;
+            this.latestCommmentHistoryNumber =  data.length
+          }
+        }
+
+      );
+      this.newCommentTable[index]["showHistory"] = true;
     }
     else {
-      this.newCommentTable[i]["showHistory"] = false
+      this.newCommentTable[index]["showHistory"] = false
     }
 
   }

@@ -19,13 +19,15 @@ export interface FeatureState extends fromApp.AppState{
 export interface State {
   ticketTable: TicketTableModel[];
   commentsTable: CommentsTableModel[];
+  commentsHistoryTable: CommentsTableModel[];
 }
 
 
 
 const initialState: State = {
   ticketTable: [ new TicketTableModel()],
-  commentsTable: [new CommentsTableModel()]
+  commentsTable: [new CommentsTableModel()],
+  commentsHistoryTable: [new CommentsTableModel()]
 };
 
 
@@ -44,6 +46,12 @@ export function  ClientViewReducer(state = initialState, action: ClientViewActio
         ...state,
         commentsTable: [...action.commentsTable]
       };
+    case (ClientViewActions.SET_COMMENT_HISTORY_TABLE):
+      return {
+        ...state,
+        commentsHistoryTable: [...action.commentsHistoryTable]
+      };
+
     default:
       return state;
   }

@@ -9,6 +9,8 @@ export const FETCH_TICKET_TABLE =  'FETCH_TICKET_TABLE';
 export const SET_TICKET_TABLE =  'SET_TICKET_TABLE';
 export const FETCH_COMMENTS_TABLE =  'FETCH_COMMENTS_TABLE';
 export const SET_COMMENTS_TABLE =  'SET_COMMENTS_TABLE';
+export const SET_COMMENT_HISTORY_TABLE =  'SET_COMMENT_HISTORY_TABLE';
+export const FETCH_COMMENT_HISTORY_TABLE =  'FETCH_COMMENT_HISTORY_TABLE';
 
 export class SetTicketTable implements Action {
   readonly type = SET_TICKET_TABLE;
@@ -32,4 +34,18 @@ export class FetchCommentsTable implements Action {
   constructor(public ticketOriginalId: number) {}
 }
 
-export type ClientViewActions = FetchTicketTable | SetTicketTable | FetchCommentsTable | SetCommentsTable ;
+export class SetCommentHistoryTable implements Action {
+  readonly type = SET_COMMENT_HISTORY_TABLE;
+
+  constructor(public commentsHistoryTable: CommentsTableModel[]) {}
+}
+
+export class FetchCommentHistoryTable implements Action {
+  readonly type = FETCH_COMMENT_HISTORY_TABLE;
+
+  constructor(public commentOriginalId: number) {}
+}
+
+
+export type ClientViewActions = FetchTicketTable | SetTicketTable
+  | FetchCommentsTable | SetCommentsTable | SetCommentHistoryTable | FetchCommentHistoryTable ;
