@@ -38,3 +38,50 @@ cite {
 }
 
 
+
+/*Refer to padding to adjust sides of the shadow*/
+.top {
+/*  box-shadow: 0 -5px 5px -5px #333;*/
+
+}
+
+.right {
+  box-shadow: 5px 0 5px -5px #333;
+}
+
+.bottom {
+  box-shadow: 0 10px 30px -10px #333;
+
+}
+
+.bottomHistory {
+  box-shadow: 0 10px 30px -10px #000000;
+  z-index: 2;
+/*  box-shadow: 0 10px 30px -10px #333;*/
+
+}
+
+.left {
+  box-shadow: -5px 0 5px -5px #333;
+}
+
+.all {
+  box-shadow: 0 0 5px #333;
+}
+
+
+
+.card-header-comment {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #b4d5f0;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+
+.card-header-history {
+  padding: .40rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #c1bdbd;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}

@@ -1,10 +1,9 @@
-
-<div class="card" *ngFor="let item of newCommentTable;let i = index"
-     style="margin: 1%;">
-
+<div class="card bottom" *ngFor="let item of newCommentTable;let i = index"
+     style="margin: 1%;" >
 
 
-  <div class="card-header">
+
+  <div class="card-header-comment" >
     <div *ngIf="item.commentNumber == latestCommmentNumber">
     <em>Comment # {{item.commentNumber}}
       <strong style="padding-left:1em">Latest</strong></em>
@@ -14,7 +13,7 @@
 
   </div>
 
-  <div class="card-block">
+  <div class="card-block" [ngClass]="{'bottomHistory': item.showHistory}">
     <blockquote class="card-blockquote">
       <p>{{ item.commentDescription }}</p>
 
@@ -50,23 +49,25 @@
 
 
 
-  <!--DROP DOWN-->
 
-<div  *ngIf="item.showHistory">
-  <div *ngFor="let item2 of newCommentHistoryTable;">
-  <div class="card-header">
+
+  <!--DROP DOWN-->
+<!--##TODO: find out how to keep data presietnat when two comment history windows are open-->
+<div  *ngIf="item.showHistory" >
+  <div class="bottomHistory" *ngFor="let item2 of newCommentHistoryTable;"  >
+    <div class="card-header-history">
     <div *ngIf="item2.commentNumber == latestCommmentHistoryNumber">
-      <small><em>Comment # {{item2.commentNumber}}
-        <strong style="padding-left:1em">Latest History</strong></em></small>
+      <small><em>Comment History # {{item2.commentNumber}}
+        <small></small><strong style="padding-left:1em">Latest History</strong></em></small>
     </div>
 
-    <small><em *ngIf="item2.commentNumber != latestCommmentHistoryNumber"> Comment # {{item2.commentNumber}} </em></small>
+    <small><em *ngIf="item2.commentNumber != latestCommmentHistoryNumber"> Comment History # {{item2.commentNumber}} </em></small>
+    </div>
 
-  </div>
 
   <div class="card-block">
     <blockquote class="card-blockquote">
-      <p>{{ item2.commentDescription }}</p>
+      <small>{{ item2.commentDescription }}</small>
       <footer>
 
 
