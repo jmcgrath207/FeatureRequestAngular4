@@ -53,21 +53,21 @@
 
   <!--DROP DOWN-->
 <!--##TODO: find out how to keep data presietnat when two comment history windows are open-->
-<div  *ngIf="item.showHistory" >
-  <div class="bottomHistory" *ngFor="let item2 of newCommentHistoryTable;"  >
+<div  *ngIf="item.showHistory && newCommentHistoryObject[i]" >
+  <div class="bottomHistory" *ngFor="let item2 of newCommentHistoryObject[i]['CommentHistory']"  >
     <div class="card-header-history">
-    <div *ngIf="item2.commentNumber == latestCommmentHistoryNumber">
+    <div *ngIf="item2.commentNumber == newCommentHistoryObject[i]['CommentHistoryLength']">
       <small><em>Comment History # {{item2.commentNumber}}
         <small></small><strong style="padding-left:1em">Latest History</strong></em></small>
     </div>
 
-    <small><em *ngIf="item2.commentNumber != latestCommmentHistoryNumber"> Comment History # {{item2.commentNumber}} </em></small>
+    <small><em *ngIf="item2.commentNumber != newCommentHistoryObject[i]['CommentHistoryLength']"> Comment History # {{item2.commentNumber}} </em></small>
     </div>
 
 
   <div class="card-block">
     <blockquote class="card-blockquote">
-      <small>{{ item2.commentDescription }}</small>
+      <small>{{ item2.commentDescription}}</small>
       <footer>
 
 

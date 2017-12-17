@@ -5,6 +5,7 @@ import {FeatureState} from "../../store/client-view.reducers";
 import {selectCommentHistoryTable, selectCommentTable} from "../../store/client-view.selector";
 import {FetchCommentHistoryTable, FetchCommentsTable} from "../../store/client-view.actions";
 import "rxjs/add/operator/takeWhile";
+import {CommentsTableModel} from "./comments-table.model";
 
 
 @Component({
@@ -14,11 +15,10 @@ import "rxjs/add/operator/takeWhile";
 })
 export class TicketCommentsComponent implements OnInit {
 
-  newCommentTable: any;
-  newCommentHistoryTable: any;
+  newCommentTable: CommentsTableModel;
+  newCommentHistoryObject: object = {};
   ticketOriginalId: number;
   latestCommmentNumber: number;
-  latestCommmentHistoryNumber: number;
 
 
 
@@ -46,7 +46,7 @@ export class TicketCommentsComponent implements OnInit {
 
               });
               this.newCommentTable = data;
-              this.latestCommmentNumber =  data.length
+              this.latestCommmentNumber =  data.length;
             }
           }
 
@@ -67,8 +67,10 @@ export class TicketCommentsComponent implements OnInit {
               commmentNumber = commmentNumber - 1;
 
             });
-            this.newCommentHistoryTable = data;
-            this.latestCommmentHistoryNumber =  data.length
+            this.newCommentHistoryObject[index] = {
+              'CommentHistory' : data,
+              'CommentHistoryLength': data.length
+            };
           }
         }
 
