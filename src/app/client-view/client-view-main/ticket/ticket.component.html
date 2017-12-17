@@ -23,10 +23,10 @@
 
 </div>
 
-<div class=" text-center" *ngIf="infoMode">
+<div class=" text-center" *ngIf="infoMode" style="margin-right: 35%">
 
 <div class="card-block">
-    <h4 class="card-title">Ticket Information</h4>
+    <h4 class="card-title">Ticket Detail</h4>
     <h6 class="card-subtitle mb-2 text-muted">ID</h6>
     <p class="card-text">{{ (clientViewState | async).ticketTable[arrayPosition].ticketOriginalId }}</p>
     <h6 class="card-subtitle mb-2 text-muted">Priority</h6>
