@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {ActivatedRoute, Params} from "@angular/router";
 import {FeatureState} from "../../store/client-view.reducers";
@@ -25,12 +25,14 @@ export class TicketCommentsComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-              private store: Store<FeatureState>) {}
+              private store: Store<FeatureState>,
+              private cd: ChangeDetectorRef) {}
 
 
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
+        this.cd.markForCheck();
         this.ticketOriginalId = params.ticketOriginalId;
         this.store.dispatch(new FetchCommentsTable(this.ticketOriginalId));
         this.store.select(selectCommentTable).take(2).subscribe(
