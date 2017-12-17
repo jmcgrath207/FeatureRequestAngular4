@@ -15,6 +15,7 @@ export class TicketOverViewComponent implements OnInit {
   clientViewState: Observable<ClientViewReducers.State>;
   arrayPosition: number;
   ticketOriginalId: number;
+  isActive: string;
 
 
   constructor(private route: ActivatedRoute,
@@ -41,18 +42,20 @@ export class TicketOverViewComponent implements OnInit {
 
 
   openComments(){
+    this.isActive = 'openComments';
     this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['overview',this.arrayPosition],
       clientViewMain: ['comments',this.ticketOriginalId]}}]);
   }
 
   openTicketTable(){
+    this.isActive = 'openTicketTable';
     this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['overview',this.arrayPosition],
       clientViewMain: ['tickettable']}}]);
   }
 
   openTicketInfo(){
+    this.isActive = 'openTicketInfo';
     this.router.navigate(['/clientview', { outlets: { clientViewSidebar: ['overview',this.arrayPosition],
         clientViewMain: ['info',this.arrayPosition]}}]);
   }
-
 }

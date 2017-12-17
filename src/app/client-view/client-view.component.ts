@@ -10,10 +10,14 @@ import * as ClientViewActions from './store/client-view.actions';
 })
 export class ClientViewComponent implements OnInit {
 
-  constructor(private store: Store<ClientViewReducers.FeatureState>) {}
+  // Testing if Store works correctly in constructor
+  constructor(private store: Store<ClientViewReducers.FeatureState>) {
+    this.store.dispatch(new ClientViewActions.FetchTicketTable());
+  }
 
   ngOnInit() {
-    this.store.dispatch(new ClientViewActions.FetchTicketTable());
+
+
   }
 
 }
