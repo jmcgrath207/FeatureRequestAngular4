@@ -25,14 +25,12 @@ export class TicketCommentsComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-              private store: Store<FeatureState>,
-              private cd: ChangeDetectorRef) {}
+              private store: Store<FeatureState>) {}
 
 
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        this.cd.markForCheck();
         this.ticketOriginalId = params.ticketOriginalId;
         this.store.dispatch(new FetchCommentsTable(this.ticketOriginalId));
         this.store.select(selectCommentTable).take(2).subscribe(

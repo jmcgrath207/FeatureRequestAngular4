@@ -10,7 +10,6 @@ import {TicketComponent} from "./client-view-main/ticket/ticket.component";
 
 
 
-
 const recipesRoutes: Routes = [
   {path: 'clientview', component: ClientViewComponent, children: [
       {path: '', component: TicketTableComponent, outlet: 'clientViewMain'},
@@ -21,7 +20,7 @@ const recipesRoutes: Routes = [
       {path: 'overview/:arrayPosition', component: TicketOverViewComponent, outlet: 'clientViewSidebar'},
 
 
-  ]},
+    ]},
 ];
 
 
@@ -31,3 +30,21 @@ const recipesRoutes: Routes = [
 
 })
 export class ClientViewRoutingModule { }
+
+
+
+
+/*
+const recipesRoutes: Routes = [
+  {path: 'clientview', component: ClientViewComponent, children: [
+      {path: '', component: TicketTableComponent, outlet: 'clientViewMain', children: [
+          {path: 'comments/:ticketOriginalId', component: TicketCommentsComponent},
+          {path: ':type/:arrayPosition', component: TicketComponent},
+          {path: 'tickettable', component: TicketTableComponent}, // added twice to since multi router outlet needs to match on a path name
+        ]},
+      {path: '', component: TicketDefaultViewComponent, outlet: 'clientViewSidebar', children: [
+          {path: 'overview/:arrayPosition', component: TicketOverViewComponent},
+        ]},
+    ]},
+];
+*/
