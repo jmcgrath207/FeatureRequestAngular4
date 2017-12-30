@@ -113,22 +113,29 @@ export class TicketCommentsComponent implements OnInit {
     if (dataIndexOf + 1 == CommentHistoryData.length){
       let leftHandedSide = this.newCommentTable[index]; //old
       let rightHandedSide = element; //new
+      let differences = dDiff.diff(leftHandedSide, rightHandedSide); // new
+      differences.forEach(diff => {
+        let changedKey = diff.path[0];
+        if (diff.kind == "E" && changedKey != "commentId") {
+          newObject[changedKey] = diff.lhs;
+        }
+      });
 
 
 
     }
-
-    //find difference between historical comments
-    let leftHandedSide = element;
-    let rightHandedSide = CommentHistoryData[CommentHistoryData.indexOf(element)+ 1]; //old
-    let differences = dDiff.diff(leftHandedSide, rightHandedSide); // new
-    differences.forEach( diff => {
-      let changedKey = diff.path[0];
-      if(diff.kind == "E" && changedKey !="commentId") {
-        newObject[changedKey] = diff.lhs;
-        console.log("test")
+    if (dataIndexOf + 1 != CommentHistoryData.length) {
+      //find difference between historical comments
+      let leftHandedSide = element;
+      let rightHandedSide = CommentHistoryData[CommentHistoryData.indexOf(element) + 1]; //old
+      let differences = dDiff.diff(leftHandedSide, rightHandedSide); // new
+      differences.forEach(diff => {
+        let changedKey = diff.path[0];
+        if (diff.kind == "E" && changedKey != "commentId") {
+          newObject[changedKey] = diff.lhs;
         }
-    });
+      });
+    }
 
     return newObject
   }
