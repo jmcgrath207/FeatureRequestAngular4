@@ -71,16 +71,19 @@ export class TicketCommentsComponent implements OnInit {
       this.store.select(selectCommentHistoryTable).take(2).subscribe(
         (CommentHistoryData: any) => {
           if (Object.keys(CommentHistoryData[0]).length !== 0) {
-            let commmentNumber = CommentHistoryData.length;
+            let commmentNumber = CommentHistoryData.length -1;
             let newCommentHistoryData = [];
             CommentHistoryData.forEach(element => {
 
               element = this.commentdiff(CommentHistoryData,element,index);
-              element["commentNumber"] = commmentNumber;
-              newCommentHistoryData.push(element);
-              commmentNumber = commmentNumber - 1;
+              if (Object.keys(element).length !== 0) {
+                element["commentNumber"] = commmentNumber;
+                newCommentHistoryData.push(element);
+                commmentNumber = commmentNumber - 1;
+              }
 
             });
+
             this.newCommentHistoryObject[index] = {
               'CommentHistory' : newCommentHistoryData,
               'CommentHistoryLength': newCommentHistoryData.length
@@ -107,7 +110,7 @@ export class TicketCommentsComponent implements OnInit {
     let dataIndexOf = CommentHistoryData.indexOf(element);
 
     //find difference between historical comment and current
-    if (dataIndexOf + 1 == CommentHistoryData.length){
+/*    if (dataIndexOf + 1 == CommentHistoryData.length){
       let leftHandedSide = this.newCommentTable[index]; //old
       let rightHandedSide = element; //new
       let differences = dDiff.diff(leftHandedSide, rightHandedSide); // new
@@ -120,11 +123,13 @@ export class TicketCommentsComponent implements OnInit {
 
 
 
-    }
-    if (dataIndexOf + 1 != CommentHistoryData.length) {
+    }*/
+/*    if (dataIndexOf + 1 != CommentHistoryData.length) {*/
       //find difference between historical comments
-      let leftHandedSide = element; // new
-      let rightHandedSide = CommentHistoryData[CommentHistoryData.indexOf(element) + 1]; //old
+    if (CommentHistoryData.indexOf(element) + 1 != CommentHistoryData.length) {
+    try {
+      let leftHandedSide = element; // old
+      let rightHandedSide = CommentHistoryData[CommentHistoryData.indexOf(element) - 1]; // new
       let differences = dDiff.diff(leftHandedSide, rightHandedSide);
       differences.forEach(diff => {
         let changedKey = diff.path[0];
@@ -132,6 +137,18 @@ export class TicketCommentsComponent implements OnInit {
           newObject[changedKey] = diff.lhs;
         }
       });
+    }
+    catch (e) {
+      let leftHandedSide = element; // old
+      let rightHandedSide = this.newCommentTable[index]; // new
+      let differences = dDiff.diff(leftHandedSide, rightHandedSide);
+      differences.forEach(diff => {
+        let changedKey = diff.path[0];
+        if (diff.kind == "E" && changedKey != "commentId") {
+          newObject[changedKey] = diff.lhs;
+        }
+      });
+    }
     }
 
     return newObject
