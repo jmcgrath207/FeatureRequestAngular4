@@ -31,6 +31,7 @@
     "bootstrap": "^3.3.7",
     "bootstrap-table": "^1.11.2",
     "core-js": "^2.4.1",
+    "deep-diff": "^0.3.8",
     "npm-update-all": "^1.0.1",
     "rxjs": "^5.5.2",
     "startbootstrap-creative": "^4.0.0-beta",
