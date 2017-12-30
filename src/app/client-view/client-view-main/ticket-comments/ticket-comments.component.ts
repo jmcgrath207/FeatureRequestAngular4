@@ -7,7 +7,7 @@ import {FetchCommentHistoryTable, FetchCommentsTable} from "../../store/client-v
 import "rxjs/add/operator/takeWhile";
 import {CommentsTableModel} from "./comments-table.model";
 import {default as dDiff} from 'deep-diff'
-import {forEach} from "@angular/router/src/utils/collection";
+
 
 
 @Component({
@@ -65,28 +65,25 @@ export class TicketCommentsComponent implements OnInit {
 
 
 
-   toggleCommentHistory(index: number) {
+  toggleCommentHistory(index: number) {
     if(this.newCommentTable[index]["showHistory"] == false){
       this.store.dispatch(new FetchCommentHistoryTable(this.newCommentTable[index]["commentOriginalId"]));
       this.store.select(selectCommentHistoryTable).take(2).subscribe(
         (CommentHistoryData: any) => {
           if (Object.keys(CommentHistoryData[0]).length !== 0) {
             let commmentNumber = CommentHistoryData.length;
+            let newCommentHistoryData = [];
             CommentHistoryData.forEach(element => {
 
-
-
               element = this.commentdiff(CommentHistoryData,element,index);
-
-
-
               element["commentNumber"] = commmentNumber;
+              newCommentHistoryData.push(element);
               commmentNumber = commmentNumber - 1;
 
             });
             this.newCommentHistoryObject[index] = {
-              'CommentHistory' : CommentHistoryData,
-              'CommentHistoryLength': CommentHistoryData.length
+              'CommentHistory' : newCommentHistoryData,
+              'CommentHistoryLength': newCommentHistoryData.length
             };
           }
         }
@@ -126,9 +123,9 @@ export class TicketCommentsComponent implements OnInit {
     }
     if (dataIndexOf + 1 != CommentHistoryData.length) {
       //find difference between historical comments
-      let leftHandedSide = element;
+      let leftHandedSide = element; // new
       let rightHandedSide = CommentHistoryData[CommentHistoryData.indexOf(element) + 1]; //old
-      let differences = dDiff.diff(leftHandedSide, rightHandedSide); // new
+      let differences = dDiff.diff(leftHandedSide, rightHandedSide);
       differences.forEach(diff => {
         let changedKey = diff.path[0];
         if (diff.kind == "E" && changedKey != "commentId") {
