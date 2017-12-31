@@ -19,6 +19,7 @@ export class TicketCommentsComponent implements OnInit {
 
   newCommentTable: CommentsTableModel;
   newCommentHistoryObject: object = {};
+  CommentHistoryData: CommentsTableModel[];
   ticketOriginalId: number;
   latestCommmentNumber: number;
 
@@ -43,6 +44,8 @@ export class TicketCommentsComponent implements OnInit {
               data.forEach(element => {
                 element["commentNumber"] = commmentNumber;
                 element["showHistory"] = false;
+                element["commentFullInverse"] = false;
+                element["commentDiffInverse"] = false;
                 commmentNumber = commmentNumber - 1;
 
               });
@@ -71,10 +74,11 @@ export class TicketCommentsComponent implements OnInit {
       this.store.select(selectCommentHistoryTable).take(2).subscribe(
         (CommentHistoryData: CommentsTableModel[]) => {
           if (Object.keys(CommentHistoryData[0]).length !== 0) {
+            this.CommentHistoryData = CommentHistoryData;
             let newCommentHistoryData;
 
-            /*newCommentHistoryData = this.commentDiffInverse(CommentHistoryData,index);*/
-            newCommentHistoryData = this.commentFullInverse(CommentHistoryData);
+            newCommentHistoryData = this.commentDiffInverse(CommentHistoryData,index);
+            /*newCommentHistoryData = this.commentFullInverse(CommentHistoryData);*/
 
 
             this.newCommentHistoryObject[index] = {
@@ -86,9 +90,11 @@ export class TicketCommentsComponent implements OnInit {
 
       );
       this.newCommentTable[index]["showHistory"] = true;
+      this.newCommentTable[index]["commentDiffInverse"] = true;
     }
     else {
-      this.newCommentTable[index]["showHistory"] = false
+      this.newCommentTable[index]["showHistory"] = false;
+      this.newCommentTable[index]["commentDiffInverse"] = false;
     }
 
   }
