@@ -19,7 +19,7 @@ export class TicketCommentsComponent implements OnInit {
 
   newCommentTable: CommentsTableModel;
   newCommentHistoryObject: object = {};
-  CommentHistoryData: CommentsTableModel[];
+  rawCommentHistoryObject: object = {};
   ticketOriginalId: number;
   latestCommmentNumber: number;
 
@@ -68,13 +68,13 @@ export class TicketCommentsComponent implements OnInit {
 
 
 
-  toggleCommentHistory(index: number) {
+  toggleCommentHistoryDropDown(index: number) {
     if(this.newCommentTable[index]["showHistory"] == false){
       this.store.dispatch(new FetchCommentHistoryTable(this.newCommentTable[index]["commentOriginalId"]));
       this.store.select(selectCommentHistoryTable).take(2).subscribe(
         (CommentHistoryData: CommentsTableModel[]) => {
           if (Object.keys(CommentHistoryData[0]).length !== 0) {
-            this.CommentHistoryData = CommentHistoryData;
+            this.rawCommentHistoryObject[index] = CommentHistoryData;
             let newCommentHistoryData;
 
             newCommentHistoryData = this.commentDiffInverse(CommentHistoryData,index);
@@ -98,6 +98,43 @@ export class TicketCommentsComponent implements OnInit {
     }
 
   }
+
+
+  toggleCommentHistoryFormatToFullInverse (index: number) {
+    // display full history inverse in history dropdown
+
+
+    let CommentHistoryData = this.rawCommentHistoryObject[index];
+    let newCommentHistoryData = this.commentFullInverse(CommentHistoryData);
+    this.newCommentHistoryObject[index] = {
+      'CommentHistory' : newCommentHistoryData,
+      'CommentHistoryLength': newCommentHistoryData.length
+    };
+    this.newCommentTable[index]["commentDiffInverse"] = false;
+    this.newCommentTable[index]["commentFullInverse"] = true;
+
+  }
+
+
+
+  toggleCommentHistoryFormatToDiffInverse (index: number) {
+    // display full history inverse in history dropdown
+
+
+    let CommentHistoryData = this.rawCommentHistoryObject[index];
+    let newCommentHistoryData = this.commentDiffInverse(CommentHistoryData, index);
+    this.newCommentHistoryObject[index] = {
+      'CommentHistory' : newCommentHistoryData,
+      'CommentHistoryLength': newCommentHistoryData.length
+    };
+    this.newCommentTable[index]["commentFullInverse"] = false;
+    this.newCommentTable[index]["commentDiffInverse"] = true;
+
+
+  }
+
+
+
 
 
   private commentFullInverse (CommentHistoryData: CommentsTableModel[]) {

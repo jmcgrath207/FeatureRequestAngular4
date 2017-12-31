@@ -40,7 +40,7 @@
 
 
         <cite class="float-right" title="History" style="padding-right: 2%">
-          <small><button class="btn btn-info btn-sm" (click)="toggleCommentHistory(i)" >History</button></small>
+          <small><button class="btn btn-info btn-sm" (click)="toggleCommentHistoryDropDown(i)" >History</button></small>
         </cite>
       </footer>
 
@@ -61,6 +61,17 @@
     <div *ngIf="item2.commentNumber == newCommentHistoryObject[i]['CommentHistoryLength']">
       <small><em>Comment History # {{item2.commentNumber}}
         <small></small><strong style="padding-left:1em">Latest History</strong></em></small>
+
+
+      <cite *ngIf="item.commentDiffInverse" class="float-right" title="Full History" style="padding-right: 2%">
+        <small><button class="btn btn-info btn-sm" (click)="toggleCommentHistoryFormatToFullInverse(i)" >Full History</button></small>
+      </cite>
+
+      <cite *ngIf="item.commentFullInverse" class="float-right" title="Change History" style="padding-right: 2%">
+        <small><button class="btn btn-info btn-sm" (click)="toggleCommentHistoryFormatToDiffInverse(i)" >Change History</button></small>
+      </cite>
+
+
     </div>
 
     <small><em *ngIf="item2.commentNumber != newCommentHistoryObject[i]['CommentHistoryLength']"> Comment History # {{item2.commentNumber}} </em></small>
@@ -92,6 +103,9 @@
         <cite title="{{ item2.updateDate}}">
           <small>Update Time: {{ item2.updateDate}}</small>
         </cite>
+
+
+
 
       </footer>
 
@@ -128,6 +142,8 @@
           <cite title="{{ item2.updateDate}}">
             <small>Update Time: {{ item2.updateDate}}</small>
           </cite>
+
+
 
         </footer>
 
