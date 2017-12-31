@@ -90,11 +90,14 @@ export class TicketCommentsComponent implements OnInit {
 
       );
       this.newCommentTable[index]["showHistory"] = true;
+      this.newCommentTable[index]["commentFullInverse"] = false;
       this.newCommentTable[index]["commentDiffInverse"] = true;
+
     }
     else {
       this.newCommentTable[index]["showHistory"] = false;
       this.newCommentTable[index]["commentDiffInverse"] = false;
+      this.newCommentTable[index]["commentFullInverse"] = false;
     }
 
   }
