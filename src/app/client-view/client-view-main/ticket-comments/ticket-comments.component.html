@@ -56,6 +56,8 @@
 <div  *ngIf="item.showHistory && newCommentHistoryObject[i]" >
   <div class="bottomHistory" *ngFor="let item2 of newCommentHistoryObject[i]['CommentHistory']"  >
     <div class="card-header-history">
+
+
     <div *ngIf="item2.commentNumber == newCommentHistoryObject[i]['CommentHistoryLength']">
       <small><em>Comment History # {{item2.commentNumber}}
         <small></small><strong style="padding-left:1em">Latest History</strong></em></small>
@@ -67,7 +69,7 @@
 
     <!-- FULL COPY COMMENT HISTORY INVERSE    -->
 
-<!--  <div class="card-block">
+  <div class="card-block">
     <blockquote class="card-blockquote">
       <small>{{ item2.commentDescription}}</small>
       <footer>
@@ -94,7 +96,7 @@
       </footer>
 
     </blockquote>
-  </div>-->
+  </div>
 
 
 
@@ -102,7 +104,7 @@
 
     <!-- DIFF COMMENT HISTORY INVERSE    -->
 
-    <div class="card-block">
+<!--    <div class="card-block">
       <blockquote class="card-blockquote">
 
 
@@ -130,7 +132,7 @@
         </footer>
 
       </blockquote>
-    </div>
+    </div>-->
 
 
 

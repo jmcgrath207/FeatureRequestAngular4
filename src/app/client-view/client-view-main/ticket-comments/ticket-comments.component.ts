@@ -69,11 +69,12 @@ export class TicketCommentsComponent implements OnInit {
     if(this.newCommentTable[index]["showHistory"] == false){
       this.store.dispatch(new FetchCommentHistoryTable(this.newCommentTable[index]["commentOriginalId"]));
       this.store.select(selectCommentHistoryTable).take(2).subscribe(
-        (CommentHistoryData: any) => {
-          let newCommentHistoryData;
+        (CommentHistoryData: CommentsTableModel[]) => {
           if (Object.keys(CommentHistoryData[0]).length !== 0) {
+            let newCommentHistoryData;
 
-            newCommentHistoryData = this.commentdiffinverse(CommentHistoryData,index);
+            /*newCommentHistoryData = this.commentDiffInverse(CommentHistoryData,index);*/
+            newCommentHistoryData = this.commentFullInverse(CommentHistoryData);
 
 
             this.newCommentHistoryObject[index] = {
@@ -93,10 +94,24 @@ export class TicketCommentsComponent implements OnInit {
   }
 
 
+  private commentFullInverse (CommentHistoryData: CommentsTableModel[]) {
+    // Return the full difference between comments and display from latest to first
+
+    let commmentNumber = CommentHistoryData.length;
+    let newCommentHistoryData = [];
+    CommentHistoryData.forEach(CommentHistoryObject => {
+      CommentHistoryObject["commentNumber"] = commmentNumber;
+        newCommentHistoryData.push(CommentHistoryObject);
+        commmentNumber = commmentNumber - 1;
+    });
+    return newCommentHistoryData;
+  }
 
 
-  private commentdiffinverse(CommentHistoryData: CommentsTableModel[],  index: number) {
-    // Gather the incremental differences between comments and displays from lastest to first
+
+
+  private commentDiffInverse(CommentHistoryData: CommentsTableModel[],  index: number) {
+    // Reuthrn the incremental differences between comments and displays from lastest to first
 
 
     let commmentNumber = CommentHistoryData.length -1;
@@ -134,6 +149,7 @@ export class TicketCommentsComponent implements OnInit {
     }
     }
 
+      // Added Info on when and who updated the comment and what historical order it was in.
       if (Object.keys(newCommentHistoryObject).length !== 0) {
         newCommentHistoryObject["updateUser"] = element["updateUser"];
         newCommentHistoryObject["updateDate"] = element["updateDate"];
