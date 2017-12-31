@@ -135,7 +135,9 @@ export class TicketCommentsComponent implements OnInit {
     }
 
       if (Object.keys(newCommentHistoryObject).length !== 0) {
-        element["commentNumber"] = commmentNumber;
+        newCommentHistoryObject["updateUser"] = element["updateUser"];
+        newCommentHistoryObject["updateDate"] = element["updateDate"];
+        newCommentHistoryObject["commentNumber"] = commmentNumber;
         newCommentHistoryData.push(newCommentHistoryObject);
         commmentNumber = commmentNumber - 1;
       }

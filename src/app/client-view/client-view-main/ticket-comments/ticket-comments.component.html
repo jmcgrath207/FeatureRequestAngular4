@@ -51,7 +51,7 @@
 
 
 
-  <!--DROP DOWN-->
+  <!--DROP DOWN    INVERSE   -->
 <!--##TODO: find out how to keep data presietnat when two comment history windows are open-->
 <div  *ngIf="item.showHistory && newCommentHistoryObject[i]" >
   <div class="bottomHistory" *ngFor="let item2 of newCommentHistoryObject[i]['CommentHistory']"  >
@@ -64,8 +64,10 @@
     <small><em *ngIf="item2.commentNumber != newCommentHistoryObject[i]['CommentHistoryLength']"> Comment History # {{item2.commentNumber}} </em></small>
     </div>
 
-  <!-- TODO: Add interlpolation ! if the value does not exist-->
-  <div class="card-block">
+
+    <!-- FULL COPY COMMENT HISTORY INVERSE    -->
+
+<!--  <div class="card-block">
     <blockquote class="card-blockquote">
       <small>{{ item2.commentDescription}}</small>
       <footer>
@@ -92,7 +94,55 @@
       </footer>
 
     </blockquote>
-  </div>
+  </div>-->
+
+
+
+
+
+    <!-- DIFF COMMENT HISTORY INVERSE    -->
+
+    <div class="card-block">
+      <blockquote class="card-blockquote">
+
+
+        <small *ngIf="item2.commentDescription">Comment Description was changed to: <b>{{ item2.commentDescription}}</b></small>
+        <br>
+
+
+        <small *ngIf="item2.creationUser">Created by was to changed to: <b>{{ item2.creationUser}}</b></small>
+        <br>
+
+        <small *ngIf="item2.creationDate">Created Time was Changed to : <b>{{ item2.creationDate}}</b></small>
+
+        <footer>
+
+
+          <cite title="{{ item2.updateUser}}">
+            <small>Updated by: <a>{{ item2.updateUser}}</a></small>
+          </cite>
+
+
+          <cite title="{{ item2.updateDate}}">
+            <small>Update Time: {{ item2.updateDate}}</small>
+          </cite>
+
+        </footer>
+
+      </blockquote>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
 </div>
 </div>
