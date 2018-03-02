@@ -1,12 +1,12 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {Store} from "@ngrx/store";
-import {ActivatedRoute, Params} from "@angular/router";
-import {FeatureState} from "../../store/client-view.reducers";
-import {selectCommentHistoryTable, selectCommentTable} from "../../store/client-view.selector";
-import {FetchCommentHistoryTable, FetchCommentsTable} from "../../store/client-view.actions";
-import "rxjs/add/operator/takeWhile";
-import {CommentsTableModel} from "./comments-table.model";
-import {default as dDiff} from 'deep-diff'
+import {Store} from '@ngrx/store';
+import {ActivatedRoute, Params} from '@angular/router';
+import {FeatureState} from '../../store/client-view.reducers';
+import {selectCommentHistoryTable, selectCommentTable} from '../../store/client-view.selector';
+import {FetchCommentHistoryTable, FetchCommentsTable} from '../../store/client-view.actions';
+import 'rxjs/add/operator/takeWhile';
+import {CommentsTableModel} from './comments-table.model';
+import {default as dDiff} from 'deep-diff';
 
 
 
@@ -42,10 +42,10 @@ export class TicketCommentsComponent implements OnInit {
             if (Object.keys(data[0]).length !== 0) {
               let commmentNumber = data.length;
               data.forEach(element => {
-                element["commentNumber"] = commmentNumber;
-                element["showHistory"] = false;
-                element["commentFullInverse"] = false;
-                element["commentDiffInverse"] = false;
+                element['commentNumber'] = commmentNumber;
+                element['showHistory'] = false;
+                element['commentFullInverse'] = false;
+                element['commentDiffInverse'] = false;
                 commmentNumber = commmentNumber - 1;
 
               });
@@ -69,15 +69,15 @@ export class TicketCommentsComponent implements OnInit {
 
 
   toggleCommentHistoryDropDown(index: number) {
-    if(this.newCommentTable[index]["showHistory"] == false){
-      this.store.dispatch(new FetchCommentHistoryTable(this.newCommentTable[index]["commentOriginalId"]));
+    if (this.newCommentTable[index]['showHistory'] === false) {
+      this.store.dispatch(new FetchCommentHistoryTable(this.newCommentTable[index]['commentOriginalId']));
       this.store.select(selectCommentHistoryTable).take(2).subscribe(
         (CommentHistoryData: CommentsTableModel[]) => {
           if (Object.keys(CommentHistoryData[0]).length !== 0) {
             this.rawCommentHistoryObject[index] = CommentHistoryData;
             let newCommentHistoryData;
 
-            newCommentHistoryData = this.commentDiffInverse(CommentHistoryData,index);
+            newCommentHistoryData = this.commentDiffInverse(CommentHistoryData, index);
             /*newCommentHistoryData = this.commentFullInverse(CommentHistoryData);*/
 
 
@@ -89,15 +89,15 @@ export class TicketCommentsComponent implements OnInit {
         }
 
       );
-      this.newCommentTable[index]["showHistory"] = true;
-      this.newCommentTable[index]["commentFullInverse"] = false;
-      this.newCommentTable[index]["commentDiffInverse"] = true;
+      this.newCommentTable[index]['showHistory'] = true;
+      this.newCommentTable[index]['commentFullInverse'] = false;
+      this.newCommentTable[index]['commentDiffInverse'] = true;
 
     }
     else {
-      this.newCommentTable[index]["showHistory"] = false;
-      this.newCommentTable[index]["commentDiffInverse"] = false;
-      this.newCommentTable[index]["commentFullInverse"] = false;
+      this.newCommentTable[index]['showHistory'] = false;
+      this.newCommentTable[index]['commentDiffInverse'] = false;
+      this.newCommentTable[index]['commentFullInverse'] = false;
     }
 
   }
@@ -113,8 +113,8 @@ export class TicketCommentsComponent implements OnInit {
       'CommentHistory' : newCommentHistoryData,
       'CommentHistoryLength': newCommentHistoryData.length
     };
-    this.newCommentTable[index]["commentDiffInverse"] = false;
-    this.newCommentTable[index]["commentFullInverse"] = true;
+    this.newCommentTable[index]['commentDiffInverse'] = false;
+    this.newCommentTable[index]['commentFullInverse'] = true;
 
   }
 
@@ -130,8 +130,8 @@ export class TicketCommentsComponent implements OnInit {
       'CommentHistory' : newCommentHistoryData,
       'CommentHistoryLength': newCommentHistoryData.length
     };
-    this.newCommentTable[index]["commentFullInverse"] = false;
-    this.newCommentTable[index]["commentDiffInverse"] = true;
+    this.newCommentTable[index]['commentFullInverse'] = false;
+    this.newCommentTable[index]['commentDiffInverse'] = true;
 
 
   }
@@ -146,7 +146,7 @@ export class TicketCommentsComponent implements OnInit {
     let commmentNumber = CommentHistoryData.length;
     let newCommentHistoryData = [];
     CommentHistoryData.forEach(CommentHistoryObject => {
-      CommentHistoryObject["commentNumber"] = commmentNumber;
+      CommentHistoryObject['commentNumber'] = commmentNumber;
         newCommentHistoryData.push(CommentHistoryObject);
         commmentNumber = commmentNumber - 1;
     });
@@ -176,19 +176,19 @@ export class TicketCommentsComponent implements OnInit {
       let differences = dDiff.diff(leftHandedSide, rightHandedSide);
       differences.forEach(diff => {
         let changedKey = diff.path[0];
-        if (diff.kind == "E" && changedKey != "commentId") {
+        if (diff.kind == 'E' && changedKey != 'commentId') {
           newCommentHistoryObject[changedKey] = diff.lhs;
         }
       });
     }
     catch (e) {
-      //find difference between last historical comments and Present Comment
+      // find difference between last historical comments and Present Comment
       let leftHandedSide = element; // old
       let rightHandedSide = this.newCommentTable[index]; // new
       let differences = dDiff.diff(leftHandedSide, rightHandedSide);
       differences.forEach(diff => {
         let changedKey = diff.path[0];
-        if (diff.kind == "E" && changedKey != "commentId") {
+        if (diff.kind == 'E' && changedKey != 'commentId') {
           newCommentHistoryObject[changedKey] = diff.lhs;
         }
       });
@@ -197,9 +197,9 @@ export class TicketCommentsComponent implements OnInit {
 
       // Added Info on when and who updated the comment and what historical order it was in.
       if (Object.keys(newCommentHistoryObject).length !== 0) {
-        newCommentHistoryObject["updateUser"] = element["updateUser"];
-        newCommentHistoryObject["updateDate"] = element["updateDate"];
-        newCommentHistoryObject["commentNumber"] = commmentNumber;
+        newCommentHistoryObject['updateUser'] = element['updateUser'];
+        newCommentHistoryObject['updateDate'] = element['updateDate'];
+        newCommentHistoryObject['commentNumber'] = commmentNumber;
         newCommentHistoryData.push(newCommentHistoryObject);
         commmentNumber = commmentNumber - 1;
       }
