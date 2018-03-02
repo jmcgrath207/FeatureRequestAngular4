@@ -28,6 +28,7 @@
     "@ngrx/router-store": "^4.1.1",
     "@ngrx/store": "^4.1.1",
     "@ngrx/store-devtools": "^4.1.1",
+    "angular-cli": "^1.0.0-beta.28.3",
     "bootstrap": "^3.3.7",
     "bootstrap-table": "^1.11.2",
     "core-js": "^2.4.1",
